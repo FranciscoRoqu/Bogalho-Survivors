@@ -35,7 +35,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"Bogalho Survivors",
   "resources":[
@@ -76,6 +76,8 @@
     {"id":{"name":"sprite_player_move","path":"sprites/sprite_player_move/sprite_player_move.yy",},},
     {"id":{"name":"sprite_solid","path":"sprites/sprite_solid/sprite_solid.yy",},},
     {"id":{"name":"sprite_weapon_template","path":"sprites/sprite_weapon_template/sprite_weapon_template.yy",},},
+    {"id":{"name":"tileSetRed","path":"sprites/tileSetRed/tileSetRed.yy",},},
+    {"id":{"name":"Red_floor","path":"tilesets/Red_floor/Red_floor.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
