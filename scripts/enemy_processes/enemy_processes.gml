@@ -9,6 +9,9 @@ function enemy_anim(){
 		case states.ATTACK:
 			sprite_index = sprite_attack
 		break;
+		case states.KNOCKBACK:
+			sprite_index = sprite_hurt
+		break;
 		case states.DEAD:
 			sprite_index = sprite_dead
 		break;
@@ -58,7 +61,7 @@ function check_facing(){
 function calc_entity_movement(){
 	// Mover o inimigo
 	
-	// Aplicar moviment
+	// Aplicar movimento
 	x += hsp
 	y += vsp
 	
@@ -66,6 +69,21 @@ function calc_entity_movement(){
 	vsp *= global.drag
 	
 	check_if_stopped()
+}
+
+function calc_knockback_movement(){
+	
+	//aplicar movimento
+	x += hsp
+	y += vsp
+	
+	//Desacelerar
+	hsp *= 0.91
+	vsp *= 0.91
+	
+	check_if_stopped()
+	knockback_time--
+	if knockback_time <= 0 state = states.IDLE
 }
 
 

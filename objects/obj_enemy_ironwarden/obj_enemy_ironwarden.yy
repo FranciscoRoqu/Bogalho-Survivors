@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_enemy_4",
+  "%Name":"obj_enemy_ironwarden",
   "eventList":[],
   "managed":true,
-  "name":"obj_enemy_4",
+  "name":"obj_enemy_ironwarden",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"propertyId":{"name":"move_speed","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.65",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"propertyId":{"name":"sprite_idle","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sprite_enemy_4",},
@@ -12,6 +12,7 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"propertyId":{"name":"sprite_dead","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sprite_enemy_4",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"propertyId":{"name":"sprite_hurt","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sprite_enemy_4",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_entity_parent","path":"objects/obj_entity_parent/obj_entity_parent.yy",},"propertyId":{"name":"hit_points_max","path":"objects/obj_entity_parent/obj_entity_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"90",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_enemy_parent","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"propertyId":{"name":"sprite_idle_special","path":"objects/obj_enemy_parent/obj_enemy_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"sprite_enemy_5",},
   ],
   "parent":{
     "name":"Enemies",

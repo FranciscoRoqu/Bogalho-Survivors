@@ -14,6 +14,10 @@ switch(state){
 			state = states.MOVE
 		enemy_anim()
 	break;
+	case states.KNOCKBACK:
+		calc_knockback_movement()
+		enemy_anim()
+	break;
 	case states.ATTACK:
 		calc_entity_movement()
 		enemy_anim()

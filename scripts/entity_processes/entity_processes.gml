@@ -10,9 +10,9 @@ function damage_entity(_tid, _sid, _damage, _time){
 		var _dead = is_dead()
 		path_end()
 		if _dead 
-			var _dis = 4
+			var _dis = 5
 		else
-			var _dis = 1
+			var _dis = 3
 		var _dir = point_direction(_sid.x, _sid.y, x, y)
 		hsp += lengthdir_x(_dis, _dir)
 		vsp += lengthdir_y(_dis, _dir)
@@ -20,6 +20,7 @@ function damage_entity(_tid, _sid, _damage, _time){
 		calc_path_delay = _time
 		alert = true
 		knockback_time = _time
+		if !_dead state = states.KNOCKBACK
 		return _dead
 	}
 }
@@ -34,12 +35,19 @@ function is_dead(){
 			
 			return true
 		}
-	}
-	return true
+	} else return true
 }
+
 function check_if_stopped(){
-	if abs(hsp) < 0.1 hsp = 0
-	if abs(vsp) < 0.1 vsp = 0
+	// Verificar se o valor das velocidades são próximos o suficiente de 0 
+	// e defini-los como 0 se for verdade
+	
+	if abs(hsp) < 0.1 {
+		hsp = 0
+	}
+	if abs(vsp) < 0.1 {
+		vsp = 0
+	}
 }
 
 function show_healthbar(){
