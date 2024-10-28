@@ -1,3 +1,5 @@
+#macro Ts 16
+
 enum states{
 	IDLE,
 	MOVE,
