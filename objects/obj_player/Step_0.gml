@@ -1,7 +1,7 @@
 switch(state){
 	default:
 		if current_weapon == noone{
-			current_weapon = instance_create_layer(x,y, "Instances", obj_start_weapon)
+			//current_weapon = instance_create_layer(x,y, "Instances", obj_start_weapon)
 		}
 		reset_variables()
 		if state != states.DEAD{

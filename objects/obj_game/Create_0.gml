@@ -1,5 +1,7 @@
 global.grid = 0
 global.drag = 0.93
+cursor_sprite = sprite_cursor
+window_set_cursor(cr_none)
 
 window_set_fullscreen(true)
 camera_set_view_size(view_camera[0], 768, 432)

@@ -59,7 +59,9 @@ function anim(){
 function aim_weapon()
 {
 	aim_dir = point_direction(x, y, mouse_x, mouse_y)
-	current_weapon.image_angle = aim_dir
+	if(current_weapon != noone){
+		current_weapon.image_angle = aim_dir
+	}
 }
 
 function check_fire(){
