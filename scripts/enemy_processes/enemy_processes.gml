@@ -48,6 +48,10 @@ function check_for_player(){
 		
 		if _dis <= attack_dis{
 			path_end()
+			state = states.ATTACK
+			if(current_weapon == noone){
+				damage_entity(obj_player, self, damage, knockback_time)
+			}
 		}
 	}
 }

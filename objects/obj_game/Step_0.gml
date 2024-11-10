@@ -1,8 +1,8 @@
 // Defina os limites da janela do jogo
-var left_limit = window_get_x();
-var right_limit = window_get_x() + window_get_width();
-var top_limit = window_get_y();
-var bottom_limit = window_get_y() + window_get_height();
+var left_limit = window_get_x() + 17;
+var right_limit = window_get_x() - 17 + window_get_width() - 17;
+var top_limit = window_get_y() + 17;
+var bottom_limit = window_get_y() - 17 + window_get_height() - 17;
 
 // Verifique a posição do mouse e mantenha-o dentro da área da janela
 var mouse_pos_x = display_mouse_get_x();

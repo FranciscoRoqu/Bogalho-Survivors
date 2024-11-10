@@ -9,3 +9,4 @@ right=0
 aim_dir=0
 can_fire = false
 
+alarm[0] = 20

@@ -16,6 +16,7 @@ switch(state){
 	break;
 	case states.KNOCKBACK:
 		calc_knockback_movement()
+		check_for_player()
 		enemy_anim()
 	break;
 	case states.ATTACK:

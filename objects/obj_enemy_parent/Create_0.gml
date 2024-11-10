@@ -10,7 +10,6 @@ state = states.IDLE
 //percurso dos inimigos seja espalhado ao longo de 1 segundo
 calc_path_delay = 30
 calc_path_timer = irandom(60)
-facing = 1
 
 // Adicionar o recurso para um caminho
 path = path_add()
