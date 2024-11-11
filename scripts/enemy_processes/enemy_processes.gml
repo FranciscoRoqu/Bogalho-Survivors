@@ -28,6 +28,7 @@ function check_for_player(){
 	//Começar a atacar? Ou continuar a perseguir (se estiver dentro da distância definida)
 	if ((_dis <= alert_dis) or alert) and _dis > attack_dis
 	{
+		state = states.MOVE
 		// O inimigo está alerta
 		alert = true
 		if calc_path_timer-- <= 0{

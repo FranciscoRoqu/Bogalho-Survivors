@@ -1,5 +1,5 @@
 /// @description
-range=160
+range=10000000000
 owner_id = noone
 knockback_time = 5
 

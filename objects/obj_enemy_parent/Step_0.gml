@@ -11,7 +11,7 @@ switch(state){
 		check_for_player()
 		check_facing()
 		if path_index == -1 
-			state = states.MOVE
+			state = states.IDLE
 		enemy_anim()
 	break;
 	case states.KNOCKBACK:
@@ -21,6 +21,7 @@ switch(state){
 	break;
 	case states.ATTACK:
 		calc_entity_movement()
+		check_for_player()
 		enemy_anim()
 	break;
 	case states.DEAD:
@@ -28,3 +29,4 @@ switch(state){
 		enemy_anim()
 	break;
 }
+show_debug_message(state)
