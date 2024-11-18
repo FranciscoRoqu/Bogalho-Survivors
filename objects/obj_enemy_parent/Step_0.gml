@@ -23,6 +23,7 @@ switch(state){
 		calc_entity_movement()
 		check_for_player()
 		enemy_anim()
+		damage_entity(obj_player,self,damage,0)
 	break;
 	case states.DEAD:
 		calc_entity_movement()

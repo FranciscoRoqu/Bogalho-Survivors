@@ -20,7 +20,10 @@ function damage_entity(_tid, _sid, _damage, _time){
 		calc_path_delay = _time
 		alert = true
 		knockback_time = _time
-		if !_dead state = states.KNOCKBACK
+		if !_dead && _tid != obj_player
+		{
+			state = states.KNOCKBACK
+		}
 		return _dead
 	}
 }
@@ -35,7 +38,7 @@ function is_dead(){
 			
 			return true
 		}
-	} else return true
+	} else return false
 }
 
 function check_if_stopped(){
@@ -53,6 +56,6 @@ function check_if_stopped(){
 function show_healthbar(){
 	// Mostrar a barra de vida do inimigo
 	
-	//if hit_points != hit_points_max and hit_points > 0
+	if hit_points != hit_points_max and hit_points > 0
 		draw_healthbar(x-20, y-20, x+20, y-15, hit_points/hit_points_max*100, $0003300, $3232FF, $00B200, 0, true, true)
 }
