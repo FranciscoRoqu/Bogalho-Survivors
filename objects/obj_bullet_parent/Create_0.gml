@@ -1,7 +1,4 @@
 /// @description
-range=300
-owner_id = noone
-knockback_time = 5
 
 function bullet_die()
 {

@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_weapon",
+  "%Name":"obj_devGun",
   "eventList":[],
   "managed":true,
-  "name":"obj_start_weapon",
+  "name":"obj_devGun",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"fire_rate","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"30",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"fire_rate","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_dis","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"20",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_bullet","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resource":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_bullet",},
   ],
