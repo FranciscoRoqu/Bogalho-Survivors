@@ -1,8 +1,5 @@
 switch(state){
 	default:
-		if current_weapon == noone{
-			current_weapon = instance_create_layer(x,y, "Instances", obj_devGun)
-		}
 		reset_variables()
 		if state != states.DEAD{
 			aim_weapon()
