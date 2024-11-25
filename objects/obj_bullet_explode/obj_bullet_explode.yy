@@ -33,9 +33,6 @@
     "name":"sprite_bullet_explode",
     "path":"sprites/sprite_bullet_explode/sprite_bullet_explode.yy",
   },
-  "spriteMaskId":{
-    "name":"sprite_enemy_1",
-    "path":"sprites/sprite_enemy_1/sprite_enemy_1.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

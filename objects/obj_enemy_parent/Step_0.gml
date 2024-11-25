@@ -30,4 +30,3 @@ switch(state){
 		enemy_anim()
 	break;
 }
-show_debug_message(state)

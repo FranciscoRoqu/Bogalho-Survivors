@@ -8,6 +8,7 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"fire_rate","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_dis","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"20",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_bullet","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resource":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_bullet",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_name","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Perfect Cell",},
   ],
   "parent":{
     "name":"Weapons",
@@ -35,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite19",
-    "path":"sprites/Sprite19/Sprite19.yy",
+    "name":"sprite_perfect_cell",
+    "path":"sprites/sprite_perfect_cell/sprite_perfect_cell.yy",
   },
   "spriteMaskId":null,
   "visible":true,

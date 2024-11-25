@@ -28,6 +28,7 @@
     {"$GMObjectProperty":"v1","%Name":"fire_rate","filters":[],"listItems":[],"multiselect":false,"name":"fire_rate","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"weapon_dis","filters":[],"listItems":[],"multiselect":false,"name":"weapon_dis","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"weapon_dis_persistent","filters":[],"listItems":[],"multiselect":false,"name":"weapon_dis_persistent","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"weapon_dis","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"weapon_name","filters":[],"listItems":[],"multiselect":false,"name":"weapon_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
