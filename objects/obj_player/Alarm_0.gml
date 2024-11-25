@@ -1,2 +1,2 @@
-/// @description
+ /// @description
 can_fire = true

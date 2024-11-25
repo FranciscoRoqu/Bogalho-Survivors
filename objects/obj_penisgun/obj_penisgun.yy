@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_devGun",
+  "%Name":"obj_penisgun",
   "eventList":[],
   "managed":true,
-  "name":"obj_devGun",
+  "name":"obj_penisgun",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"fire_rate","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_weapon_parent","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"propertyId":{"name":"weapon_dis","path":"objects/obj_weapon_parent/obj_weapon_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"20",},
@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite19",
-    "path":"sprites/Sprite19/Sprite19.yy",
+    "name":"sprite_weapon_template",
+    "path":"sprites/sprite_weapon_template/sprite_weapon_template.yy",
   },
   "spriteMaskId":null,
   "visible":true,
