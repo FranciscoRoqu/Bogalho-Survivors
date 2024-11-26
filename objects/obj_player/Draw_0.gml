@@ -1,8 +1,4 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
-
-// Inherit the parent event
-event_inherited();
+event_inherited()
 
 if place_meeting(mouse_x,mouse_y,obj_weapon_parent){
 	draw_set_font(fnt_tooltip)

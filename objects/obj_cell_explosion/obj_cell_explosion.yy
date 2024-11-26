@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bullet_explode",
+  "%Name":"obj_cell_explosion",
   "eventList":[],
   "managed":true,
-  "name":"obj_bullet_explode",
+  "name":"obj_cell_explosion",
   "overriddenProperties":[],
   "parent":{
     "name":"Weapons",
@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_bullet_explode",
-    "path":"sprites/sprite_bullet_explode/sprite_bullet_explode.yy",
+    "name":"sprite_perfect_explosion",
+    "path":"sprites/sprite_perfect_explosion/sprite_perfect_explosion.yy",
   },
   "spriteMaskId":null,
   "visible":true,

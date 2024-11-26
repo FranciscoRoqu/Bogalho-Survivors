@@ -14,5 +14,6 @@ switch(state){
 			state = states.IDLE
 		}
 		anim()
+		pick_weapon()
 	break;
 }

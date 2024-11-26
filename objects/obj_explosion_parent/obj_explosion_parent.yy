@@ -1,18 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_bullet_explode",
-  "eventList":[],
+  "%Name":"obj_explosion_parent",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_bullet_explode",
+  "name":"obj_explosion_parent",
   "overriddenProperties":[],
   "parent":{
     "name":"Weapons",
     "path":"folders/Weapons.yy",
   },
-  "parentObjectId":{
-    "name":"obj_explosion_parent",
-    "path":"objects/obj_explosion_parent/obj_explosion_parent.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,10 +29,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprite_bullet_explode",
-    "path":"sprites/sprite_bullet_explode/sprite_bullet_explode.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
