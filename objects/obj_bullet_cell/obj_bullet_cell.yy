@@ -12,7 +12,7 @@
   ],
   "parent":{
     "name":"Weapons",
-    "path":"folders/Weapons.yy",
+    "path":"folders/Sprites/Weapons.yy",
   },
   "parentObjectId":{
     "name":"obj_bullet_parent",

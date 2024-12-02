@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Weapons",
-    "path":"folders/Weapons.yy",
+    "path":"folders/Sprites/Weapons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

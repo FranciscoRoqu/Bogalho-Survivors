@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Weapons",
-    "path":"folders/Weapons.yy",
+    "path":"folders/Sprites/Weapons.yy",
   },
   "parentObjectId":{
     "name":"obj_explosion_parent",
