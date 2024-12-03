@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"sprite_perfect_cell",
-  "bboxMode":0,
+  "bboxMode":1,
   "bbox_bottom":21,
   "bbox_left":0,
   "bbox_right":23,

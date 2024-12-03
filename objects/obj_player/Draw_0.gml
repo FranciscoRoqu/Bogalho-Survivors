@@ -1,7 +1,6 @@
 event_inherited()
 
 if place_meeting(mouse_x,mouse_y,obj_weapon_parent){
-	draw_set_font(fnt_tooltip)
 	var inst_count = instance_number(obj_weapon_parent); // Número de instâncias do tipo obj_weapon_parent (incluindo filhos)
 
 	for (var i = 0; i < inst_count; i++) {
@@ -12,7 +11,7 @@ if place_meeting(mouse_x,mouse_y,obj_weapon_parent){
 	    if (point_in_rectangle(mouse_x, mouse_y, inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom)) {
 	        // Exibe o nome da arma (ou outra propriedade)
 	        draw_set_color(c_white);
-	        draw_text(mouse_x + 10, mouse_y + 10, "Arma: " + string(inst.weapon_name));
+	        draw_text_transformed(mouse_x + 10, mouse_y + 10, string(inst.weapon_name),0.2,0.2,0);
 	        break; // Sai do loop após encontrar a primeira instância
 	    }
 	}

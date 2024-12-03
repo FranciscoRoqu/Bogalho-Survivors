@@ -84,43 +84,43 @@ function check_fire(){
 }
 
 function pick_weapon(){
-if keyboard_check_pressed(ord("E")){
-	// Coordenadas do jogador
-	var player_x = obj_player.x;
-	var player_y = obj_player.y;
+	if keyboard_check_pressed(ord("E")){
+		// Coordenadas do jogador
+		var player_x = obj_player.x;
+		var player_y = obj_player.y;
 	
-	var inst_count = instance_number(obj_weapon_parent); // Número de instâncias do tipo obj_weapon_parent (incluindo filhos)
+		var inst_count = instance_number(obj_weapon_parent); // Número de instâncias do tipo obj_weapon_parent (incluindo filhos)
 	
-	for (var i = 0; i < inst_count; i++) {
-	    // Encontra a i-ésima instância que é filho de obj_weapon_parent
-	    var inst = instance_find(obj_weapon_parent, i); 
-		if current_weapon != inst{
-		    // Verifica se o mouse está sobre a instância
-		    if (point_in_rectangle(mouse_x, mouse_y, inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom)) {
-		        // Verifica a distância do jogador para a arma
-		        var distance = point_distance(player_x, player_y, inst.x, inst.y);
-		        if (distance <= 100) { // 100 é a distância máxima permitida para apanhar a arma
-		            // Atribui a instância tocada à variável current_weapon
-					if current_weapon != noone{
-						var new_weapon = instance_create_layer(obj_player.x, obj_player.y, "Instances", current_weapon.object_index);
-						var original_weapon = current_weapon;
-						show_debug_message("Arma largada e instância original destruída: " + string(original_weapon.object_index));
-						with (original_weapon) {
-							instance_destroy();
+		for (var i = 0; i < inst_count; i++) {
+			// Encontra a i-ésima instância que é filho de obj_weapon_parent
+			var inst = instance_find(obj_weapon_parent, i); 
+			if current_weapon != inst{
+				// Verifica se o mouse está sobre a instância
+				if (point_in_rectangle(mouse_x, mouse_y, inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom)) {
+				    // Verifica a distância do jogador para a arma
+				    var distance = point_distance(player_x, player_y, inst.x, inst.y);
+				    if (distance <= 100) { // 100 é a distância máxima permitida para apanhar a arma
+				        // Atribui a instância tocada à variável current_weapon
+						if current_weapon != noone{
+							var new_weapon = instance_create_layer(obj_player.x, obj_player.y, "Instances", current_weapon.object_index);
+							var original_weapon = current_weapon;
+							show_debug_message("Arma largada e instância original destruída: " + string(original_weapon.object_index));
+							with (original_weapon) {
+								instance_destroy();
+							}
 						}
+				        
+						current_weapon = inst;
+						
+				        show_debug_message("Arma apanhada: " + string(inst.object_index));
+				    } else {
+				        show_debug_message("Muito longe para apanhar a arma: " + string(inst.object_index));
 					}
-		            
-					current_weapon = inst;
-					
-		            show_debug_message("Arma apanhada: " + string(inst.object_index));
-		        } else {
-		            show_debug_message("Muito longe para apanhar a arma: " + string(inst.object_index));
-		        }
-		
-		        break; // Interrompe o loop após encontrar a primeira instância tocada
-		    }
-		}
-	}
+			
+			        break; // Interrompe o loop após encontrar a primeira instância tocada
+			    }
+			}
+	}	
 }
 
 	if (keyboard_check_pressed(vk_space)) {

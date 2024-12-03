@@ -35,6 +35,8 @@
     {"$GMObjectProperty":"v1","%Name":"bullet_speed","filters":[],"listItems":[],"multiselect":false,"name":"bullet_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"10","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"knockback_time","filters":[],"listItems":[],"multiselect":false,"name":"knockback_time","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"range","filters":[],"listItems":[],"multiselect":false,"name":"range","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"300","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"damage","filters":[],"listItems":[],"multiselect":false,"name":"damage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"damage_type","filters":[],"listItems":[],"multiselect":false,"name":"damage_type","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

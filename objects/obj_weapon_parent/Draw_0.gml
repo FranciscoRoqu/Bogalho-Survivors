@@ -1,4 +1,4 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-
-temp_bullet = instance_create_layer(room_width,room_height,"Bullet",weapon_bullet)
+draw_self()
+draw_text_transformed(x+10,y+10,instance_count,0.35,0.35,0)
