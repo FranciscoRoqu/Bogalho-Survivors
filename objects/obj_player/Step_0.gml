@@ -6,6 +6,7 @@ switch(state){
 			get_input()
 			movement()
 			check_fire()
+			pick_weapon()
 		}
 		if leftrightmovement != 0 or updownmovement != 0 and state != states.DEAD{
 			state = states.MOVE
@@ -14,6 +15,7 @@ switch(state){
 			state = states.IDLE
 		}
 		anim()
-		pick_weapon()
 	break;
+	case states.DEAD:
+		instance_destroy()
 }
