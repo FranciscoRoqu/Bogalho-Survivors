@@ -40,7 +40,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2024.1100.0.710",
   },
   "name":"Bogalho Survivors",
   "resources":[
@@ -55,6 +55,7 @@
     {"id":{"name":"obj_button_play","path":"objects/obj_button_play/obj_button_play.yy",},},
     {"id":{"name":"obj_button_quit","path":"objects/obj_button_quit/obj_button_quit.yy",},},
     {"id":{"name":"obj_cell_explosion","path":"objects/obj_cell_explosion/obj_cell_explosion.yy",},},
+    {"id":{"name":"obj_damage_type","path":"objects/obj_damage_type/obj_damage_type.yy",},},
     {"id":{"name":"obj_debug","path":"objects/obj_debug/obj_debug.yy",},},
     {"id":{"name":"obj_devGun","path":"objects/obj_devGun/obj_devGun.yy",},},
     {"id":{"name":"obj_enemy_1","path":"objects/obj_enemy_1/obj_enemy_1.yy",},},
@@ -107,6 +108,7 @@
     {"id":{"name":"sprite_tiles","path":"sprites/sprite_tiles/sprite_tiles.yy",},},
     {"id":{"name":"sprite_weapon_template","path":"sprites/sprite_weapon_template/sprite_weapon_template.yy",},},
     {"id":{"name":"Sprite22","path":"sprites/Sprite22/Sprite22.yy",},},
+    {"id":{"name":"Sprite27","path":"sprites/Sprite27/Sprite27.yy",},},
     {"id":{"name":"tilesets","path":"tilesets/tilesets/tilesets.yy",},},
   ],
   "resourceType":"GMProject",
