@@ -9,10 +9,10 @@ function room_gen(layout, offset_x, offset_y){
         // Se for uma porta, define a direção
         if (is_array(layout[i]) && array_length(layout[i]) > 3) {
             var _direction = layout[i][3]; // "top", "bottom", etc.
-            var inst = instance_create_layer(x, y, "Instances", obj);
+            var inst = instance_create_layer(x, y, "MapLayout", obj);
             inst.door_direction = _direction;
         } else {
-            instance_create_layer(x, y, "Instances", obj);
+            instance_create_layer(x, y, "MapLayout", obj);
         }
     }
 }
