@@ -10,11 +10,11 @@ if(collided)
 	var current_camera_y = camera_get_view_y(camera);
 	
 	// Objetivo (nova sala)
-	var target_camera_x = _offset_y;
-	var target_camera_y = _offset_x;
+	var target_camera_x = _offset_x;
+	var target_camera_y = _offset_y;
 	
 	// Interpolação suave
-	var smooth_speed = 0.25; // Quanto menor, mais suave
+	var smooth_speed = 0.1; // Quanto menor, mais suave
 	var new_camera_x = lerp(current_camera_x, target_camera_x, smooth_speed);
 	var new_camera_y = lerp(current_camera_y, target_camera_y, smooth_speed);
 	
