@@ -3,12 +3,12 @@
 
 global.room_layouts = [
     [
-        [obj_solid, 0, 0],  // Posição inicial (0, 0) de uma parede
-		[obj_solid, 0, 0],
-		[obj_solid, 0, 753],
-		[obj_solid, 1350, 0],
-		[obj_door, 16, 16, "left"],
-		[obj_devGun, 272, 256]
+         [obj_solid, 0.0, 0.0, 48.000008, 1.0],
+         [obj_solid, 0.0, 416.0, 48.000004, 1.0],
+         [obj_solid, 0.0, 0.0, 1.0, 27.0],
+         [obj_solid, 752.0, 0.0, 1.0, 27.0],
+         [obj_door, 16.0, 16.0, 1.0, 25.0, "left"],
+         [obj_devGun, 272.0, 256.0, 1.0, 1.0]
     ]
 ];
 
