@@ -1,6 +1,6 @@
 function reset_variables()
 {
-	move_speed=1.5
+	move_speed=2.25
 	up=0
 	down=0
 	left=0
