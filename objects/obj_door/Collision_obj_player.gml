@@ -1,28 +1,34 @@
+
 /// @description Colisão com o jogador
-collided = true
 
-// Seleciona o próximo layout de forma aleatória
-var next_room_index = irandom(array_length(global.room_layouts) - 1);
-var next_room_layout = global.room_layouts[next_room_index];
-//_direction = global.room_layouts[next_room_index][4][5]; // Direção da porta
-
-// Define o offset com base na direção
-switch (_direction) {
-    case "top":
-        _offset_y = _offset_y - 432; // Gera acima
-        break;
-    case "bottom":
-        _offset_y = _offset_y + 432; // Gera abaixo
-        break;
-    case "left":
-        _offset_x = _offset_x - 768; // Gera à esquerda
-        break;
-    case "right":
-        _offset_x = _offset_x + 768; // Gera à direita
-        break;
+if(collided == false)
+{
+	// Selects the next layout randomly
+	var next_room_index = irandom(array_length(global.room_layouts) - 1);
+	var next_room_layout = global.room_layouts[next_room_index];
+	
+	// Defines offset based on direction
+	switch (_direction) {
+	    case "top":
+	        _offset_y = _offset_y - 432; // Top
+	        break;
+	    case "bottom":
+	        _offset_y = _offset_y + 432; // Bottom
+	        break;
+	    case "left":
+	        _offset_x = _offset_x - 768; // Left
+	        break;
+	    case "right":
+	        _offset_x = _offset_x + 768; // Right
+	        break;
+	}
+	
+	// Creates the new room
+	room_gen(next_room_layout, _offset_x, _offset_y, _direction);
+	collided = true
 }
 
+obj_player.path = path_add()
 
-// Gera a nova sala
-room_gen(next_room_layout, _offset_x, _offset_y);
-
+obj_player.mp_path = mp_grid_path(global.grid, obj_player.path, obj_player.x, obj_player.y, x, y,true)
+path_add_point(obj_player.path,global.opposite_door.x + 25, global.opposite_door.y, 75)
