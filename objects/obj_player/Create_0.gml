@@ -17,7 +17,6 @@ alarm[0] = 20
 
 
 random_num = ceil(random(1000000))
-show_debug_message(random_num)
 if random_num == 1
 {
 	state = states.DEAD

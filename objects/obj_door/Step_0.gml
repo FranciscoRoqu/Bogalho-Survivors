@@ -1,7 +1,9 @@
+
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
 if(collided)
+
 {
 	// Calcula a nova posição da câmera
 	// Posição atual da câmera
