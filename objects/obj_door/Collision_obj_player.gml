@@ -31,4 +31,5 @@ if(collided == false)
 obj_player.path = path_add()
 
 obj_player.mp_path = mp_grid_path(global.grid, obj_player.path, obj_player.x, obj_player.y, x, y,true)
-path_add_point(obj_player.path,global.opposite_door.x + 25, global.opposite_door.y, 75)
+path_add_point(obj_player.path,obj_player.x,global.opposite_door.y,100)
+path_add_point(obj_player.path,global.opposite_door.x + 25, global.opposite_door.y, 100)
