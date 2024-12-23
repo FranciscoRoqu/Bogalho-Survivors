@@ -3,24 +3,20 @@
 
 global.room_layouts = [
     [
-         [obj_solid, 0.0, 0.0, 48.000008, 1.0],
-         [obj_solid, 0.0, 416.0, 48.000004, 1.0],
-         [obj_solid, 0.0, 0.0, 1.0, 11.0],
-         [obj_solid, 752.0, 0.0, 1.0, 27.0],
-         [obj_devGun, 272.0, 256.0, 1.0, 1.0],
-         [obj_solid, 0.0, 256.0, 1.0, 11.0],
-         [obj_door, 8.0, 216.0, 1.0, 5.0, "left"],
-         [obj_enemy_2, 688.0, 111.0, 1.0, 1.0],
-         [obj_enemy_6, 541.0, 69.0, 1.0, 1.0],
-         [obj_enemy_ironwarden, 552.0, 138.0, 1.0, 1.0]
+         [obj_solid, 0.0, 0.0, 48.000004, 2.3125],
+         [obj_solid, 0.0, 32.0, 1.75, 25.0],
+         [obj_solid, 12.0, 404.0, 47.250004, 1.75],
+         [obj_solid, 740.0, 32.0, 2.0, 24.0],
+         [obj_door, 384.0, 26.0, 1.666667, 1.703448, "top"],
+         [obj_door, 27.0, 212.0, 0.13000005, 1.551724, "left"],
+         [inverted_door, 27.0, 220.0, 0.13333334, 1.551724],
+         [obj_map_limit, 16.00003, 16.0, 15.333334, 6.25],
+         [obj_blank, 0.0, 0.0, 48.0, 1.0],
+         [obj_blank, 752.0, 16.0, 1.0, 26.0],
+         [obj_blank, 0.0, 416.0, 47.0, 1.0],
+         [obj_blank, 0.0, 16.0, 1.0, 25.0]
     ]
 ];
 
 // Sala inicial
 global.current_room_index = 0;
-
-// Define o tamanho da câmera e sua view
-view_enabled = true;
-view_set_visible(0, true);
-view_set_wport(0, 640); // Largura da câmera
-view_set_hport(0, 480); // Altura da câmera
