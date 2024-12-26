@@ -1,3 +1,7 @@
 player_controlled = false
-mask_index = sprite_player_move
-alarm[2] = 1
+
+mask_index = sprite_nocollision
+if(pathing == false)
+{
+	alarm[2] = 1
+}

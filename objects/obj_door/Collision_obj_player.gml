@@ -1,5 +1,4 @@
-
-/// @description Colisão com o jogador
+/// @description Collision with the player
 
 if(collided == false)
 {
@@ -26,10 +25,14 @@ if(collided == false)
 	// Creates the new room
 	room_gen(next_room_layout, _offset_x, _offset_y, _direction);
 	collided = true
+	
+	obj_player.path = path_add()
+	mp_grid_clear_all(global.grid)
+	
+	obj_player.mp_path = mp_grid_path(global.grid, obj_player.path, obj_player.x, obj_player.y, x, y, true)
+	path_add_point(obj_player.path, obj_player.x, global.opposite_door.y, 100)
+	path_add_point(obj_player.path, global.opposite_door.x + 25, global.opposite_door.y, 100)
 }
 
-obj_player.path = path_add()
 
-obj_player.mp_path = mp_grid_path(global.grid, obj_player.path, obj_player.x, obj_player.y, x, y,true)
-path_add_point(obj_player.path,obj_player.x,global.opposite_door.y,100)
-path_add_point(obj_player.path,global.opposite_door.x + 25, global.opposite_door.y, 100)
+
