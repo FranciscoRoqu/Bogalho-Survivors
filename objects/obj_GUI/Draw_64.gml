@@ -1,4 +1,4 @@
-draw_healthbar(10, 10, 200, 25, obj_player.hit_points/obj_player.hit_points_max*100, $0003300, $3232FF, $00B200, 0, true, true)
+draw_healthbar(10, 10, 200, 25, obj_player.hit_points/obj_player.hit_points_max*100, c_dkgray, $3232FF, $00B200, 0, true, true)
 draw_sprite_ext(sprite_healthbar, -1, 2, 6, 2.15, 1.1, 0, c_white, 1)
 var w = display_get_gui_width();  // GUI width (screen width)
 var h = display_get_gui_height(); // GUI height (screen height)
