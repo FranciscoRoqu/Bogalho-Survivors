@@ -1,6 +1,6 @@
 function reset_variables()
 {
-	move_speed=2.25
+	move_speed=2.75
 	up=0
 	down=0
 	left=0
@@ -31,15 +31,11 @@ function get_input(){
 function movement(){
 	updownmovement = down - up
 	leftrightmovement = right - left
-	if(updownmovement != 0 and leftrightmovement != 0)
-	{
-		move_speed = move_speed - .5
-	}
 	if aim_dir > 90 and aim_dir < 270
 		facing = -1
 	else
 		facing = 1
-	move_and_collide(leftrightmovement * move_speed, updownmovement * move_speed, obj_solid)
+	move_and_collide(leftrightmovement * move_speed, updownmovement * move_speed, obj_solid, 4, undefined, undefined, max_speed, max_speed)
 }
 
 function anim(){
@@ -85,56 +81,58 @@ function check_fire(){
 
 function pick_weapon(){
 	if keyboard_check_pressed(ord("E")){
-		// Coordenadas do jogador
+		// Player coordinates
 		var player_x = obj_player.x
 		var player_y = obj_player.y
 	
-		var inst_count = instance_number(obj_weapon_parent) // Número de instâncias do tipo obj_weapon_parent (incluindo filhos)
+		var inst_count = instance_number(obj_weapon_parent) // Number of objects from the same type as obj_weapon_parent
 	
 		for (var i = 0; i < inst_count; i++) {
 			// Encontra a i-ésima instância que é filho de obj_weapon_parent
 			var inst = instance_find(obj_weapon_parent, i) 
-			if current_weapon != inst{
-				// Verifica se o mouse está sobre a instância
-				if (point_in_rectangle(mouse_x, mouse_y, inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom)) {
-				    // Verifica a distância do jogador para a arma
+			if current_weapon != inst
+			{
+				// Verify if the mouse is hovering a weapon
+				if (point_in_rectangle(mouse_x, mouse_y, inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom)) 
+				{
+				    // Verify the distance between the player and the weapon
 				    var distance = point_distance(player_x, player_y, inst.x, inst.y)
-				    if (distance <= 100) { // 100 é a distância máxima permitida para apanhar a arma
-				        // Atribui a instância tocada à variável current_weapon
-						if current_weapon != noone{
+				    if (distance <= 100) // 100 is the maximum allowed distance to pick up a weapon
+					{ 
+				        // Add the touched weapon to the current weapon variable
+						if (current_weapon != noone)
+						{
 							var new_weapon = instance_create_layer(current_weapon.x, current_weapon.y, "Instances", current_weapon.object_index)
 							var original_weapon = current_weapon
-							//show_debug_message("Arma largada e instância original destruída: " + string(original_weapon.object_index))
-							with (original_weapon) {
+							with (original_weapon) 
+							{
 								instance_destroy()
 							}
 						}
 				        
 						current_weapon = inst
-						
-				        //show_debug_message("Arma apanhada: " + string(inst.object_index))
+						alarm[0] = -1
+						can_fire = true
 					}
-			
-			        break // Interrompe o loop após encontrar a primeira instância tocada
+			        break // Stop the loop after finding the first instance
 			    }
 			}
 	}	
 }
 
 	if (keyboard_check_pressed(vk_space)) {
-		// Verifica se o jogador tem uma arma equipada
+		// Verify if the player has a weapon equipped
 		if (current_weapon != noone) {
-		    // Cria uma nova instância da arma (referenciada por current_weapon) na posição do jogador
+		    // Create a new instance of the current weapon
 			var new_weapon = instance_create_layer(current_weapon.x, current_weapon.y, "Instances", current_weapon.object_index)
 
-		    // Guarda a instância original antes de apagar
+		    // Hold original weapon
 		    var original_weapon = current_weapon
 		
-		    // Remove a referência da arma equipada
+		    // Remove the equipped weapon reference
 		    current_weapon = noone
 			
-			//show_debug_message("Arma largada e instância original destruída: " + string(original_weapon.object_index))
-		    // Apaga a instância original
+		    // Delete the  original instance
 		    with (original_weapon) {
 		        instance_destroy()
 		    }
