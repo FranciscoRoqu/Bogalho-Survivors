@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Door",
-    "path":"folders/Door.yy",
+    "path":"folders/Objects/Door.yy",
   },
   "parentObjectId":null,
   "persistent":false,
