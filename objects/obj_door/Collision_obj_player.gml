@@ -3,7 +3,7 @@
 if(collided == false)
 {
 	// Selects the next layout randomly
-	var next_room_index = irandom(array_length(global.room_layouts) - 1);
+	var next_room_index = irandom_range(1, array_length(global.room_layouts) - 1);
 	var next_room_layout = global.room_layouts[next_room_index];
 	
 	// Defines offset based on direction
