@@ -8,8 +8,8 @@
   "name":"obj_explosion_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Sprites/Weapons.yy",
+    "name":"Explosions",
+    "path":"folders/Objects/Weapons/Explosions.yy",
   },
   "parentObjectId":null,
   "persistent":false,

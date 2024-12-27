@@ -6,8 +6,8 @@
   "name":"obj_cell_explosion",
   "overriddenProperties":[],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Sprites/Weapons.yy",
+    "name":"Explosions",
+    "path":"folders/Objects/Weapons/Explosions.yy",
   },
   "parentObjectId":{
     "name":"obj_explosion_parent",

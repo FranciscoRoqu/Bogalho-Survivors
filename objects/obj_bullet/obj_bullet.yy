@@ -12,8 +12,8 @@
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"damage_type","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
   ],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Sprites/Weapons.yy",
+    "name":"Bullets",
+    "path":"folders/Objects/Weapons/Bullets.yy",
   },
   "parentObjectId":{
     "name":"obj_bullet_parent",

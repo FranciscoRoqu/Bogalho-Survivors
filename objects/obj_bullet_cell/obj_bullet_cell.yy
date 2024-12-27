@@ -5,15 +5,15 @@
   "managed":true,
   "name":"obj_bullet_cell",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"bullet_explosion","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resource":{"name":"obj_cell_explosion","path":"objects/obj_cell_explosion/obj_cell_explosion.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_cell_explosion",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"bullet_explosion","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resource":{"name":"obj_fredPlosion","path":"objects/obj_fredPlosion/obj_fredPlosion.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_fredPlosion",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"bullet_speed","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"10",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"range","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"300",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"knockback_time","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"200",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_bullet_parent","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"propertyId":{"name":"damage","path":"objects/obj_bullet_parent/obj_bullet_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"10",},
   ],
   "parent":{
-    "name":"Weapons",
-    "path":"folders/Sprites/Weapons.yy",
+    "name":"Bullets",
+    "path":"folders/Objects/Weapons/Bullets.yy",
   },
   "parentObjectId":{
     "name":"obj_bullet_parent",
