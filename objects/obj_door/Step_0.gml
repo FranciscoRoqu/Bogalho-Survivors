@@ -11,8 +11,8 @@ if(collided)
 	var current_camera_y = camera_get_view_y(camera);
 	
 	// Objetivo (nova sala)
-	var target_camera_x = _offset_x;
-	var target_camera_y = _offset_y;
+	var target_camera_x = global._offset_x;
+	var target_camera_y = global._offset_y;
 	
 	// Interpolação suave
 	var smooth_speed = 0.075; // Quanto menor, mais suave
