@@ -17,7 +17,6 @@
     {"$GMFolder":"","%Name":"Cats","folderPath":"folders/Entity/Cats.yy","name":"Cats","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Enemies","folderPath":"folders/Entity/Enemies.yy","name":"Enemies","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Player","folderPath":"folders/Entity/Player.yy","name":"Player","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Door","folderPath":"folders/Objects/Door.yy","name":"Door","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -55,7 +54,6 @@
   },
   "name":"Bogalho Survivors",
   "resources":[
-    {"id":{"name":"NekoPresence","path":"extensions/NekoPresence/NekoPresence.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"font_console","path":"fonts/font_console/font_console.yy",},},
     {"id":{"name":"bogalho","path":"objects/bogalho/bogalho.yy",},},
@@ -97,7 +95,6 @@
     {"id":{"name":"obj_tile_right_down","path":"objects/obj_tile_right_down/obj_tile_right_down.yy",},},
     {"id":{"name":"obj_tile_right_up","path":"objects/obj_tile_right_up/obj_tile_right_up.yy",},},
     {"id":{"name":"obj_tile","path":"objects/obj_tile/obj_tile.yy",},},
-    {"id":{"name":"objNekoPresenceDemo","path":"objects/objNekoPresenceDemo/objNekoPresenceDemo.yy",},},
     {"id":{"name":"weapon_devGun","path":"objects/weapon_devGun/weapon_devGun.yy",},},
     {"id":{"name":"weapon_fred","path":"objects/weapon_fred/weapon_fred.yy",},},
     {"id":{"name":"weapon_parent","path":"objects/weapon_parent/weapon_parent.yy",},},
