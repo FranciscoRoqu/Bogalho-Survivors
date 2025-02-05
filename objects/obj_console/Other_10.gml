@@ -4,8 +4,8 @@ var command_done = false
 
 if (text_part[0] == commands[command_1.create]) {
 	#region CREATE
-		var create_x = obj_player.x
-		var create_y = obj_player.y
+		var create_x = bogalho.x
+		var create_y = bogalho.y
 		var create_obj = -1
 		
 		var parse_parts = array_length(text_part)

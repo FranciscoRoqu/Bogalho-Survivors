@@ -24,7 +24,7 @@ switch(state){
 	case states.ATTACK:
 		calc_entity_movement()
 		check_for_player()
-		damage_entity(obj_player,self,damage,0)
+		damage_entity(bogalho,self,damage,0)
 		enemy_anim()
 	break;
 	case states.DEAD:
