@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprite_banger",
+    "path":"sprites/sprite_banger/sprite_banger.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
