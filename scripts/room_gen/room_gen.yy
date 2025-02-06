@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"room_processes",
+  "%Name":"room_gen",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"room_processes",
+  "name":"room_gen",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",
