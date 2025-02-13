@@ -1,10 +1,19 @@
 // Extract door positions from a room layout
-function extract_doors(room_data) {
+function extract_doors(room_data, offsets) {
     var doors = [];
     for (var i = 0; i < array_length(room_data); i++) {
         if (room_data[i][0] == obj_door) {
-            var door_direction = room_data[i][5]; // 6th element is the direction
-            array_push(doors, door_direction);
+			var door = 
+			{
+				direction: undefined,
+				position: []
+			}
+            door.direction = room_data[i][5]; // 6th element is the direction
+			if(!is_undefined(offsets))
+			{
+				door.position = [room_data[i][1] + offsets[0], room_data[i][2] + offsets[1]]
+			}
+			array_push(doors, door);
         }
     }
     return doors; // Return an array of door directions
@@ -28,7 +37,7 @@ function has_opposite_door(room_data, target_door) {
     
     // Loop through the doors in the room and check if any match the opposite direction
     for (var i = 0; i < array_length(doors); i++) {
-        if (doors[i] == opposite_door) {
+        if (doors[i].direction == opposite_door) {
             return true; // Found a matching door
         }
     }

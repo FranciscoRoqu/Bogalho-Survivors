@@ -1,5 +1,6 @@
 /// @desc Room creation logic
-
+randomize()
+random_set_seed(0)
 global.room_layouts = [
     [
          [obj_door, 384.0, 403.0, 1.5333333, 0.20689656, "bottom"],
@@ -38,13 +39,12 @@ global.room_layouts = [
          [obj_tile, 0.0, 0.0, 24.0, 13.5]
 	]
 ];
+// Initialize global storage
+global.rooms = [];
+global.rooms_by_position = ds_map_create();
 
 // Initial room
 global.current_room_index = 0;
-
-// Array that holds the hierarchy of rooms
-global.room_hierarchy = [];
-
 
 // Define offsets and corresponding doors
 var room_positions = [
@@ -58,8 +58,15 @@ global._offset_x = 3840;
 global._offset_y = 2160;
 var offset_x = global._offset_x;
 var offset_y = global._offset_y;
+var offsets = []
 var last_room_id = 0;
-room_gen(global.room_layouts[0], offset_x, offset_y, 0)
+var retry;
+// Create Room 0
+var room_0 = add_room(undefined, undefined, 0, global.room_layouts[0], offset_x, offset_y)
+
+// Store the root room for reference
+global.root_room = room_0;
+room_gen(global.room_layouts[0], offset_x, offset_y)
 
 // Room ID counter for unique room IDs
 global.room_id_counter = 1;
@@ -80,104 +87,85 @@ for(var i = 0; i < 4; i++)
 	{
 		// Assign a unique ID to the room
         var new_room_id = global.room_id_counter;
-        global.room_id_counter += 1; // Increment the counter for the next room
 		
 		var chosen_room = candidate_rooms[irandom(array_length(candidate_rooms) - 1)];
-		room_gen(chosen_room, offset_x + pos.offset[0], offset_y + pos.offset[1], new_room_id, last_room_id, get_opposite_door(pos.direction));
+		room_gen(chosen_room, offset_x + pos.offset[0], offset_y + pos.offset[1]);
+		do {
+		    retry = add_room(global.root_room, pos.direction, global.room_id_counter, chosen_room, offset_x + pos.offset[0], offset_y + pos.offset[1])
+		} until (retry != undefined);
+		global.room_id_counter += 1; // Increment the counter for the next room
 	}
 	else
 	{
 		show_message("No room found with opposing doors");
 	}
 }
-
 var room_number = irandom_range(global.room_id_counter + 3, 15);
-var _room = undefined;
-// Generate the other rooms
-for(var i = 0; i < room_number; i++)
+var current_room = undefined
+for(var i = global.room_id_counter; i < room_number; i++)
 {
-	var incomplete_rooms = [];  // Array to store the IDs of incomplete rooms
-	// Loop through the room hierarchy to check each room
-	for (var j = 0; j < global.room_id_counter; j++) 
+	var incomplete_rooms = [];
+	for(var j = 0; j < array_length(global.rooms); j++)
 	{
-		_room = global.room_hierarchy[j];
-		// Check if the room is incomplete by seeing if any side is not connected (-1)
-		if (_room.bottom == -1
-		or _room.right == -1
-		or _room.left == -1
-		or _room.top == -1)
+		current_room = global.rooms[j]
+		if(current_room.top == undefined
+		or current_room.bottom == undefined
+		or current_room.left == undefined
+		or current_room.right == undefined)
 		{
-			if(_room.doors[0] == "bottom"
-			or _room.doors[0] == "right"
-			or _room.doors[0] == "left"
-			or _room.doors[0] == "top")
+			if(current_room.doors[0].direction == "top"
+			or current_room.doors[0].direction == "bottom"
+			or current_room.doors[0].direction == "left"
+			or current_room.doors[0].direction == "right")
 			{
-				// Add the room ID to the incomplete_rooms array
-				array_push(incomplete_rooms, _room.id);
+				array_push(incomplete_rooms, current_room)
 			}
 		}
+	}
+	do {
+		var random_incomplete = incomplete_rooms[irandom(array_length(incomplete_rooms) - 1)];
+		var random_incomplete_id = random_incomplete.id
+		var incomplete_directions = [];
+		current_room = global.rooms[random_incomplete_id]
+		if(current_room.top == undefined)
+		{
+			array_push(incomplete_directions, "top")
+		}
+			if(current_room.bottom == undefined)
+		{
+			array_push(incomplete_directions, "bottom")
+		}
+			if(current_room.left == undefined)
+		{
+			array_push(incomplete_directions, "left")
+		}
+			if(current_room.right == undefined)
+		{
+			array_push(incomplete_directions, "right")
+		}
+		offsets = current_room.offsets
+	    var random_direction_number = irandom(array_length(incomplete_directions) - 1)
+		var random_direction = incomplete_directions[random_direction_number]
+		switch(random_direction)
+		{
+			case "top":
+				offsets[1] = offsets[1] - 432
+			break;
+			case "bottom":
+				offsets[1] = offsets[1] + 432
+			break;
+			case "left":
+				offsets[0] = offsets[0] - 768
+			break;
+			case "right":
+				offsets[0] = offsets[0] + 768
+			break;
+		}
+		var room_layout = global.room_layouts[irandom_range(1, array_length(global.room_layouts) - 1)]
+		retry = add_room(random_incomplete, random_direction, global.room_id_counter, room_layout, offsets[0], offsets[1])
+	} until (retry != undefined);
 
-	}
-	var random_incomplete = incomplete_rooms[irandom(array_length(incomplete_rooms) - 1)]
-	var incomplete_directions = []
-	_room = global.room_hierarchy[random_incomplete]
-	if(_room.top == -1)
-	{
-		array_push(incomplete_directions, "top")
-	}
-	if(_room.bottom == -1)
-	{
-		array_push(incomplete_directions, "bottom")
-	}
-	if(_room.left == -1)
-	{
-		array_push(incomplete_directions, "left")
-	}
-	if(_room.right == -1)
-	{
-		array_push(incomplete_directions, "right")
-	}
-	var off_x = global.room_hierarchy[random_incomplete].offset_x
-	var off_y = global.room_hierarchy[random_incomplete].offset_y
-	var random_direction = irandom(array_length(incomplete_directions) - 1)
-	random_direction = incomplete_directions[random_direction]
-	switch(random_direction)
-	{
-		case "top":
-			off_y = off_y - 432
-		break;
-		case "bottom":
-			off_y = off_y + 432
-		break;
-		case "left":
-			off_x = off_x - 768
-		break;
-		case "right":
-			off_x = off_x + 768
-		break;
-	}
-	room_gen(global.room_layouts[irandom_range(1, array_length(global.room_layouts) - 1)], off_x, off_y, global.room_id_counter, random_incomplete, get_opposite_door(random_direction))
 	global.room_id_counter++
+	room_gen(room_layout, offsets[0], offsets[1])	
 }
-
-// Function to visualize room hierarchy
-function visualize_room_hierarchy()
-{
-    // Loop through each room in the hierarchy and display its information
-    for (var i = 0; i < array_length(global.room_hierarchy); i++)
-    {
-        var _room = global.room_hierarchy[i];
-        
-        // Format the room's details as a string
-        var room_info = "Room ID: " + string(_room.id) + "\n";
-        room_info += "  Top: " + (_room.top == -1 ? "None" : string(_room.top)) + "\n";
-        room_info += "  Bottom: " + (_room.bottom == -1 ? "None" : string(_room.bottom)) + "\n";
-        room_info += "  Left: " + (_room.left == -1 ? "None" : string(_room.left)) + "\n";
-        room_info += "  Right: " + (_room.right == -1 ? "None" : string(_room.right)) + "\n";
-        
-        // Output the room info to the debug console or a message box
-        show_debug_message(room_info);
-    }
-}
-
-visualize_room_hierarchy();
+show_message(global.rooms[0].offsets)

@@ -12,8 +12,7 @@ can_fire = false
 player_controlled = true
 pathing = false
 collided = false
-path = noone
-mp_grid = noone
+path = -1
 
 alarm[0] = 20
 

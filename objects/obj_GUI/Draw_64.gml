@@ -1,3 +1,4 @@
+draw_set_font(fnt_menu)
 draw_healthbar(10, 10, 200, 25, obj_player.hit_points/obj_player.hit_points_max*100, c_dkgray, $3232FF, $00B200, 0, true, true)
 draw_sprite_ext(sprite_healthbar, -1, 2, 6, 2.15, 1.1, 0, c_white, 1)
 var w = display_get_gui_width();  // GUI width (screen width)
@@ -17,6 +18,7 @@ if(obj_player.current_weapon != noone)
 		var sprite_damage_type = global.damages_sprites[damage_type];
 		
 		currentX = lerp(currentX, targetX1, 0.1);
+		draw_set_color(c_white)
 		draw_sprite_ext(sprite_info, -1, currentX, 125, 1.5, 1.5, 0, c_white, 1);
 		draw_sprite_ext(sprite_damage_type, -1, currentX, 85, 0.65, 0.65, 0, c_white, 1);
 		draw_sprite_ext(sprite_portrait, -1, currentX, 85, 1, 1, 0, c_white, 1);

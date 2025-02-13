@@ -21,6 +21,7 @@ switch(state){
 		}
 		else
 		{
+			mask_index = -1
 			state = states.MOVE
 			if path_index != -1
 			{
@@ -43,9 +44,13 @@ switch(state){
 			}
 			if path_position == 1
 			{
+				show_message("Reached the end of the path")
 				player_controlled = true
-				mask_index = sprite_player_idle
+				//mask_index = sprite_player_idle
 				mp_grid_add_instances(global.grid, obj_solid, false)
+				path_position = 0
+				path_delete(path)
+				path = -1
 			}
 		}	
 		break;
