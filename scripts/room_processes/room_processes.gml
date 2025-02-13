@@ -275,10 +275,10 @@ function destroy_door(_direction, door){
 	if(!is_undefined(door_inst))
 	{
 		instance_destroy(door_inst, false)
-		var inverted_door = instance_position(door.position[0], door.position[1], obj_inverted_door)
-		if(!is_undefined(inverted_door))
+		var _inverted_door = instance_position(door.position[0], door.position[1], obj_inverted_door)
+		if(!is_undefined(_inverted_door))
 		{
-			instance_destroy(inverted_door, false)
+			instance_destroy(_inverted_door, false)
 		}
 	}
 	return door_inst
