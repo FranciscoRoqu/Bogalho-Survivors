@@ -82,8 +82,8 @@ function check_fire(){
 function pick_weapon(){
 	if keyboard_check_pressed(ord("E")){
 		// Player coordinates
-		var player_x = obj_player.x
-		var player_y = obj_player.y
+		var player_x = bogalho.x
+		var player_y = bogalho.y
 	
 		var inst_count = instance_number(obj_weapon_parent) // Number of objects from the same type as obj_weapon_parent
 	

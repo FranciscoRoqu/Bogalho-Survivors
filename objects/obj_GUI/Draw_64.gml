@@ -1,13 +1,12 @@
-draw_set_font(fnt_menu)
-draw_healthbar(10, 10, 201, 25, obj_player.hit_points/obj_player.hit_points_max*100, c_dkgray, $3232FF, $00B200, 0, true, true)
+draw_healthbar(10, 10, 200, 25, bogalho.hit_points/bogalho.hit_points_max*100, c_dkgray, $3232FF, $00B200, 0, true, true)
 draw_sprite_ext(sprite_healthbar, -1, 2, 6, 2.15, 1.1, 0, c_white, 1)
 var w = display_get_gui_width();  // GUI width (screen width)
 var h = display_get_gui_height(); // GUI height (screen height)
 
-if(obj_player.current_weapon != noone)
+if(bogalho.current_weapon != noone)
 {
 
-	var weapon = obj_player.current_weapon;
+	var weapon = bogalho.current_weapon;
 	var bullet = weapon.weapon_bullet
 	
 	if (object_is_ancestor(bullet, obj_bullet_parent)) 
@@ -18,7 +17,6 @@ if(obj_player.current_weapon != noone)
 		var sprite_damage_type = global.damages_sprites[damage_type];
 		
 		currentX = lerp(currentX, targetX1, 0.1);
-		draw_set_color(c_white)
 		draw_sprite_ext(sprite_info, -1, currentX, 125, 1.5, 1.5, 0, c_white, 1);
 		draw_sprite_ext(sprite_damage_type, -1, currentX, 85, 0.65, 0.65, 0, c_white, 1);
 		draw_sprite_ext(sprite_portrait, -1, currentX, 85, 1, 1, 0, c_white, 1);
@@ -43,7 +41,7 @@ if(obj_player.current_weapon != noone)
 		
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_middle);
-		draw_text_transformed(currentX - 15, 174, string(obj_player.move_speed), 0.35, 0.35, 0)
+		draw_text_transformed(currentX - 15, 174, string(bogalho.move_speed), 0.35, 0.35, 0)
 	}
 }
 
@@ -86,3 +84,26 @@ if(obj_player.current_weapon != noone)
 //if(current_weapon == noone && instance_exists(obj_sprite_damage)) {
 //	instance_destroy(obj_sprite_damage)
 //}
+
+var w = display_get_gui_width();  // GUI width (screen width)
+var h = display_get_gui_height(); // GUI height (screen height)
+
+// Set alignment to bottom-right
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+
+// Draw the FPS text, scaled
+draw_text_transformed(w - 10, h - 5, "FPS: " + string(fps), 0.35, 0.35, 0);
+
+draw_set_halign(fa_left)
+draw_set_valign(fa_bottom)
+draw_text_transformed(10, h - 5, "Instance count: " + string(instance_count), 0.35, 0.35, 0)
+
+draw_text_transformed(10, h - 15, "Controlled: " + string(bogalho.player_controlled), 0.35, 0.35, 0)
+
+if(bogalho.path != noone)
+{
+	draw_path(bogalho.path,bogalho.x,bogalho.y,true)
+}
+
+draw_text_transformed(10, h - 25, "Current Room: " + string(global.current_room_index), 0.35, 0.35, 0)

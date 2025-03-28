@@ -162,7 +162,7 @@
   "italic":false,
   "kerningPairs":[],
   "last":0,
-  "lineHeight":69,
+  "lineHeight":0,
   "maintainGms1Font":false,
   "name":"fnt_menu",
   "parent":{

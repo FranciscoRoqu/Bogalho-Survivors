@@ -2,9 +2,7 @@
 // Você pode escrever seu código neste editor
 
 if(collided)
-
 {
-	// Calcula a nova posição da câmera
 	// Posição atual da câmera
 	var camera = view_camera[0];
 	var current_camera_x = camera_get_view_x(camera);
@@ -21,5 +19,5 @@ if(collided)
 	
 	
 	// Atualiza a posição da câmera
-	camera_set_view_pos(camera, new_camera_x, new_camera_y);
+	//camera_set_view_pos(camera, new_camera_x, new_camera_y);
 }
