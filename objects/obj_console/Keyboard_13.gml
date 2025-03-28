@@ -1,1 +1,0 @@
-view_set_camera(view_current, view_camera[1])

@@ -5,16 +5,16 @@
 // keys used to display the console
 displaykey[0] = 223 // ` Qwerty
 displaykey[1] = 220	// § Qwertz/Apple
-displaykey[2] = vk_f1	// F1
+displaykey[2] = 112	// F1
 // keys used to hide the console
 closekey[0] = 223 // ` Qwerty
 closekey[1] = 220 // § Qwertz/Apple
-closekey[2] = vk_f1 // F1
-closekey[3] = vk_escape  // Esc
+closekey[2] = 112 // F1
+closekey[3] = 27  // Esc
 
 
-open_me_key_count = array_length(displaykey)
-close_me_key_count = array_length(closekey)
+open_me_key_count = array_length_1d(displaykey)
+close_me_key_count = array_length_1d(closekey)
 #endregion
 #region settings
 prediction_count_max = 11			// when typing how many predictions do you want in the drop down
@@ -70,11 +70,11 @@ view_intro_highlight_col =	make_colour_rgb(255,255,255)
 #endregion
 #region heights/widths/sizes
 pos_top = -1 // where it starts on the screen
-pos_height = 240 // how tall the history area is (the textbox starts after this)
+pos_height = 300 // how tall the history area is (the textbox starts after this)
 pos_margin_sides = 24 // how far away from the sides the box should be 
 pos_inner_padding_sides = 20 // how much room should there be between the text and the side of the box
 pos_inner_padding_bottom = 25 // this is how much room is between the bottom of the text area and the bottom text line
-main_area_height = 30 // the height of the text area 
+main_area_height = 40 // the height of the text area 
 main_area_inner_padding_sides = 50 // how far away from the left side the text starts on the main area 
 history_line_height = 24
 predict_line_height = 22
@@ -316,7 +316,6 @@ commands_focused = array_create(command_1.size,false) // does this command have 
 		second_level[command_1.game,i++] = "resource_count"
 		second_level[command_1.game,i++] = "instance_count"
 		second_level[command_1.game,i++] = "restart"
-		second_level[command_1.game,i++] = "end"
 		second_level[command_1.game,i++] = "fullscreen_toggle"
 		second_level[command_1.game,i++] = "room_restart"
 		second_level[command_1.game,i++] = "room_goto"

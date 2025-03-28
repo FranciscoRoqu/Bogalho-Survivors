@@ -368,7 +368,3 @@ if (view_active_count > 0) { // draw any graphs we need
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_alpha(1)
-
-draw_text_transformed(10, 30, "Player controlled: " + string(obj_player.player_controlled), 0.35, 0.35, 0)
-draw_text_transformed(10, 50, "Path position: " + string(obj_player.path_position), 0.35, 0.35, 0)
-draw_text_transformed(10, 70, "Current Room: " + string(global.current_room_index), 0.35, 0.35, 0)

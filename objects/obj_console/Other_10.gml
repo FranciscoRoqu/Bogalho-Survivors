@@ -4,11 +4,11 @@ var command_done = false
 
 if (text_part[0] == commands[command_1.create]) {
 	#region CREATE
-		var create_x = obj_player.x
-		var create_y = obj_player.y
+		var create_x = room_width/2
+		var create_y = room_height/2
 		var create_obj = -1
 		
-		var parse_parts = array_length(text_part)
+		var parse_parts = array_length_1d(text_part)
 		var object_to_try_and_make = asset_get_index(text_part[1])
 
 		if (parse_parts == 1) { // object doesnt exist 
@@ -44,7 +44,7 @@ if (text_part[0] == commands[command_1.create]) {
 } else if (text_part[0] == commands[command_1.set] or text_part[0] == "edit") { 
 	#region set
 
-		var parse_parts = array_length(text_part)
+		var parse_parts = array_length_1d(text_part)
 		var object_to_try_and_edit = asset_get_index(text_part[1])
 		
 		if (parse_parts == 1) { // object doesnt exist 
@@ -74,9 +74,9 @@ if (text_part[0] == commands[command_1.create]) {
 								if (string_length(string_digits(other.text_part[3])) == string_length(other.text_part[3])) { // is int
 									if (is_array(getting_this_instance)) { // ARRAY OF INTS
 										if (parse_parts==5) { // it has a decimal point
-											var new_array = array_create(array_length(getting_this_instance),real(other.text_part[3]+"."+other.text_part[4]))
+											var new_array = array_create(array_length_1d(getting_this_instance),real(other.text_part[3]+"."+other.text_part[4]))
 										} else {
-											var new_array = array_create(array_length(getting_this_instance),real(other.text_part[3]))
+											var new_array = array_create(array_length_1d(getting_this_instance),real(other.text_part[3]))
 										}
 										variable_instance_set(id, string(other.text_part[2]), new_array)
 									} else { // INT
@@ -91,7 +91,7 @@ if (text_part[0] == commands[command_1.create]) {
 									var console_all_strings_added_together = string(string_copy(other.text,other.stage_text_running_length[2]+1,string_length(other.text)-other.stage_text_running_length[2]+1))
 								
 									if (is_array(getting_this_instance)) { // ARRAY OF STRINGS
-										var new_array = array_create(array_length(getting_this_instance),console_all_strings_added_together)
+										var new_array = array_create(array_length_1d(getting_this_instance),console_all_strings_added_together)
 										variable_instance_set(id, string(other.text_part[2]), new_array)
 									} else { // STRING
 										variable_instance_set(id, string(other.text_part[2]), console_all_strings_added_together)
@@ -111,7 +111,7 @@ if (text_part[0] == commands[command_1.create]) {
 } else if (text_part[0] == commands[command_1.destroy]) {
 	#region destroy
 	
-		var parse_parts = array_length(text_part)
+		var parse_parts = array_length_1d(text_part)
 		
 		var object_to_try_and_destroy = asset_get_index(text_part[1])
 		
@@ -140,7 +140,7 @@ if (text_part[0] == commands[command_1.create]) {
 } else if (text_part[0] == commands[command_1.view]) {
 	#region view
 
-		var parse_parts = array_length(text_part)
+		var parse_parts = array_length_1d(text_part)
 		var object_to_try_and_access = asset_get_index(text_part[1])
 		
 		if (parse_parts == 1) { // object doesnt exist 
@@ -245,7 +245,7 @@ if (text_part[0] == commands[command_1.create]) {
 	#endregion
 } else if (text_part[0] == commands[command_1.game]) {
 	#region game
-		var parse_parts = array_length(text_part)
+		var parse_parts = array_length_1d(text_part)
 		
 		if (parse_parts == 1) { // object doesnt exist 
 			temp_post_message = "Game must have sub commands"
@@ -401,13 +401,7 @@ if (text_part[0] == commands[command_1.create]) {
 				#endregion
 			} else if (text_part[1] == "room_restart") {
 				#region room_restart
-				room_restart();
-				command_done = true
-				#endregion
-			} else if(text_part[1] == "end")
-			{
-				#region end
-				game_end()
+				room_restart()
 				command_done = true
 				#endregion
 			} else if (text_part[1] == "room_goto") {

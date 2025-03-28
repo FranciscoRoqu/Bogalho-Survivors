@@ -7,7 +7,7 @@ dt = delta_time / 100000
 
 if (display_frame <= 0) { // can be opened 
 	var openme = false
-	for (var i = 0; i < open_me_key_count; i++) { // check all open keys 
+	for (var i = 0; i < open_me_key_count; ++i) { // check all open keys 
 	    if (keyboard_check_released(displaykey[i])) {
 			openme = true
 		}
@@ -23,15 +23,15 @@ if (display_frame <= 0) { // can be opened
 		main_x2 = history_x2
 		predict_x2 = main_x2
 	}
-} 
-else { // can be closed 
+} else { // can be closed 
+	
 	var closeme = false
-	for (var i = 0; i < close_me_key_count; i++) { // check all close keys 
-	    if (keyboard_check_direct(closekey[i])) {
+	for (var i = 0; i < close_me_key_count; ++i) { // check all close keys 
+	    if (keyboard_check_released(closekey[i])) {
 			closeme = true
 		}
 	}
-
+	
 	if (closeme) {
 		show_debug_message("close console")
 		display_direction = -display_close_speed
@@ -152,7 +152,7 @@ if (text_changed) {
 		stage_text_length[temp_part_count] = string_length(temp_text_part) // count the number of character in this group. 
 		stage_text_running_length[temp_part_count] = text_length // count how many characters along until the end of this stage 
 		
-		stage_count = array_length(text_part) // count the number of stages 
+		stage_count = array_length_1d(text_part) // count the number of stages 
 		
 		// make things lowercase 
 		if (stage_count > 0) {text_part[0] = string_lower(text_part[0])}
@@ -176,9 +176,9 @@ if (text_changed) {
 			if (cursor_at_stage_last != cursor_at_stage) {
 				cursor_at_stage_last = cursor_at_stage
 				
-				var commands_focused_length = array_length(commands_focused)
+				var commands_focused_length = array_length_1d(commands_focused)
 				commands_focused = array_create(commands_focused_length,false) // does this command have focus
-				var predictions_focused_length = array_length(predictions_focused)
+				var predictions_focused_length = array_length_1d(predictions_focused)
 				predictions_focused = array_create(predictions_focused_length,false) // does this command have focus
 
 			}
@@ -228,9 +228,9 @@ if (text_changed) {
 			if (good_first_stage) { // Yes we are going to do something 
 				
 				// SECOND LEVEL
-				if (array_length(text_part) == 2) { 
+				if (array_length_1d(text_part) == 2) { 
 					event_user(2)
-				} else if (array_length(text_part) >= 3) {
+				} else if (array_length_1d(text_part) >= 3) {
 					event_user(3)
 				}
 				
@@ -239,7 +239,7 @@ if (text_changed) {
 				var has_focus = false 
 				var is_focused = 0
 				
-				var predictions_focused_count = array_length(predictions_focused)
+				var predictions_focused_count = array_length_1d(predictions_focused)
 				for (var i = 0; i < predictions_focused_count; ++i) { // if there is no 
 				    if (predictions_focused[i] == true) {
 						has_focus = true // something has focus 
@@ -249,7 +249,7 @@ if (text_changed) {
 				}
 				if (has_focus == false) {
 					predictions_focused = 0 // clear this array 
-					predictions_focused = array_create(array_length(predictions),false)
+					predictions_focused = array_create(array_length_1d(predictions),false)
 				} else {
 				    if (predictions_visible[is_focused] == false) { // make sure we can still see this prediction 
 						// ah we cant see this prediction so move down until we can 
