@@ -3,7 +3,7 @@ function build_room_at(layout, gx, gy) {
     var base_x = WORLD_CENTER_X + gx * ROOM_WIDTH;
     var base_y = WORLD_CENTER_Y + gy * ROOM_HEIGHT;
 
-    // Debug output for room placement
+    // Debug da colocação da sala
     show_debug_message("Building room at: (" + string(base_x) + ", " + string(base_y) + ")");
 
     for (var i = 0; i < array_length(layout); i++) {
@@ -16,7 +16,7 @@ function build_room_at(layout, gx, gy) {
         var xscale = layout[i][3];
         var yscale = layout[i][4];
 
-        // Debug the object position
+        // Debug da posição do objeto
         show_debug_message("Object " + string(i) + " position: (" + string(_x) + ", " + string(_y) + ")");
 
         var inst = instance_create_layer(_x, _y, "Instances", obj);
@@ -24,11 +24,11 @@ function build_room_at(layout, gx, gy) {
         inst.image_yscale = yscale;
 
         if (array_length(layout[i]) > 5) {
-            inst.door_dir = layout[i][5]; // optional
+            inst.door_dir = layout[i][5]; // opcional
         }
     }
 
-    // Debugging: Draw a small red square at the room's center
+    // Debugging: Desenhar um quadrado vermelho no centro da sala
     draw_set_color(c_red);
     draw_rectangle(base_x - 5, base_y - 5, base_x + 5, base_y + 5, false);
 }
