@@ -56,7 +56,7 @@
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sprite_soldier_idle",
     "autoRecord":true,
     "backdropHeight":768,
@@ -87,6 +87,8 @@
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
+    "seqHeight":57.0,
+    "seqWidth":45.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,

@@ -7,7 +7,6 @@ function extract_doors(room_data) {
             array_push(doors, door_direction);
         }
     }
-	show_debug_message(doors)
     return doors; // Return an array of door directions
 }
 /// get_opposite_door(door_direction)

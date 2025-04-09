@@ -84,26 +84,3 @@ if(bogalho.current_weapon != noone)
 //if(current_weapon == noone && instance_exists(obj_sprite_damage)) {
 //	instance_destroy(obj_sprite_damage)
 //}
-
-var w = display_get_gui_width();  // GUI width (screen width)
-var h = display_get_gui_height(); // GUI height (screen height)
-
-// Set alignment to bottom-right
-draw_set_halign(fa_right);
-draw_set_valign(fa_bottom);
-
-// Draw the FPS text, scaled
-draw_text_transformed(w - 10, h - 5, "FPS: " + string(fps), 0.35, 0.35, 0);
-
-draw_set_halign(fa_left)
-draw_set_valign(fa_bottom)
-draw_text_transformed(10, h - 5, "Instance count: " + string(instance_count), 0.35, 0.35, 0)
-
-draw_text_transformed(10, h - 15, "Controlled: " + string(bogalho.player_controlled), 0.35, 0.35, 0)
-
-if(bogalho.path != noone)
-{
-	draw_path(bogalho.path,bogalho.x,bogalho.y,true)
-}
-
-draw_text_transformed(10, h - 25, "Current Room: " + string(global.current_room_index), 0.35, 0.35, 0)
