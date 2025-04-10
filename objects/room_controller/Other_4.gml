@@ -1,4 +1,5 @@
 randomize()
+global.room_layout_map = ds_map_create();
 global.room_templates = room_templates();
 
 var all_keys = variable_struct_get_names(global.room_templates);
@@ -41,6 +42,19 @@ while (rooms_built < num_rooms && ds_list_size(open_positions) > 0) {
         var nx = from_x + dx;
         var ny = from_y + dy;
         var key = string(nx) + "," + string(ny);
+		
+		var from_room_layout = get_room_layout(from_x, from_y);
+		if (!layout_has_door(from_room_layout, dir)) {
+		    continue; // Continuar se não existir porta
+		}
+		
+		show_debug_message("Trying direction: " + dir);
+		if (from_room_layout == undefined) {
+		    show_debug_message("ERROR: Origin room layout not found!");
+		}
+		if (!layout_has_door(from_room_layout, dir)) {
+		    show_debug_message("Skipping direction " + dir + " (origin room lacks door)");
+		}
 
         if (!ds_map_exists(room_positions, key)) {
             var valid_layouts = [];
