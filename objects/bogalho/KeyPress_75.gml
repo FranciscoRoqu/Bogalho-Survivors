@@ -1,7 +1,10 @@
-// Iterate through all instances of the parent object
+// Itera por todas as instâncias do objeto pai (ex: inimigos ativos)  
 with (obj_enemy_parent) 
 {
-	effect_create_above(ef_explosion, x, y, 50, c_red); // Explosion Effect
-    instance_destroy(); // Destroy each enemy instance
+    // Efeito visual de explosão com configurações específicas:
+    effect_create_above(ef_explosion, x, y, 50, c_red);  // (tipo, X, Y, intensidade, cor vermelha)
+    instance_destroy(); // Destrói cada instância individualmente
 }
-audio_play_sound(sound_explosion_long,1,false)
+
+// Efeito sonoro pós-destruição em massa  
+audio_play_sound(sound_explosion_long,1,false)  // Reproduz som prolongado (prioridade 1, sem loop)  
