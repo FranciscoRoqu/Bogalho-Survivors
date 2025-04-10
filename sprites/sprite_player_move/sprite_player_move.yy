@@ -48,13 +48,13 @@
   "origin":4,
   "parent":{
     "name":"Player",
-    "path":"folders/Entity/Player.yy",
+    "path":"folders/Objects/Entity/Player.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sprite_player_move",
     "autoRecord":true,
     "backdropHeight":768,

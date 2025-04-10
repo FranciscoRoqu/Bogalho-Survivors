@@ -20,7 +20,7 @@ function damage_entity(_tid, _sid, _damage, _time){
 		calc_path_delay = _time
 		alert = true
 		knockback_time = _time
-		if !_dead && _tid != obj_player
+		if !_dead && _tid != bogalho
 		{
 			state = states.KNOCKBACK
 		}

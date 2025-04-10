@@ -24,7 +24,7 @@ function enemy_anim(){
 }
 
 function check_for_player(){
-	var _dis = distance_to_object(obj_player)
+	var _dis = distance_to_object(bogalho)
 	//Começar a atacar? Ou continuar a perseguir (se estiver dentro da distância definida)
 	if ((_dis <= alert_dis) or alert) and _dis > attack_dis
 	{
@@ -36,7 +36,7 @@ function check_for_player(){
 			calc_path_timer = calc_path_delay
 			
 			// Encontrar um caminho até ao jogador
-			var _found_player = mp_grid_path(global.grid, path, x, y, obj_player.x, obj_player.y, choose(0,1))
+			var _found_player = mp_grid_path(global.grid, path, x, y, bogalho.x, bogalho.y, choose(0,1))
 			
 			// Começar a perseguir o jogador
 			if _found_player{
@@ -51,7 +51,7 @@ function check_for_player(){
 			path_end()
 			state = states.ATTACK
 			if(current_weapon == noone){
-				damage_entity(obj_player, self, damage, knockback_time)
+				damage_entity(bogalho, self, damage, knockback_time)
 			}
 		}
 	}

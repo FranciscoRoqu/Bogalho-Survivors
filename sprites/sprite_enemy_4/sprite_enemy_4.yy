@@ -34,13 +34,13 @@
   "origin":4,
   "parent":{
     "name":"Enemies",
-    "path":"folders/Entity/Enemies.yy",
+    "path":"folders/Objects/Entity/Enemies.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sprite_enemy_4",
     "autoRecord":true,
     "backdropHeight":768,

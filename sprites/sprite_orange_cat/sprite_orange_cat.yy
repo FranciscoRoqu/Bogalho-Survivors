@@ -32,13 +32,13 @@
   "origin":0,
   "parent":{
     "name":"Cats",
-    "path":"folders/Entity/Cats.yy",
+    "path":"folders/Objects/Entity/Cats.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sprite_orange_cat",
     "autoRecord":true,
     "backdropHeight":768,

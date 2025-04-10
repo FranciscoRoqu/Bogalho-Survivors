@@ -10,8 +10,8 @@
   "name":"obj_button_parent",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/UI/Objects.yy",
+    "name":"UI",
+    "path":"folders/Objects/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,
