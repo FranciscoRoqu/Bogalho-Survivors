@@ -99,7 +99,7 @@ while (rooms_built < num_rooms && ds_list_size(open_positions) > 0) {
     }
 }
 
-// Spawn do jogador no centro da sala inicial
-var player_x = WORLD_CENTER_X + ROOM_WIDTH / 2;  // X central
-var player_y = WORLD_CENTER_Y + ROOM_HEIGHT / 2;  // Y central
-instance_create_layer(player_x, player_y, "Player", bogalho);  // Cria instância
+// Spawn player in center of start room
+var player_x = WORLD_CENTER_X + ROOM_WIDTH / 2;
+var player_y = WORLD_CENTER_Y + ROOM_HEIGHT / 2;
+instance_create_layer(player_x, player_y, "Player", bogalho);
