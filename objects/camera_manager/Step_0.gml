@@ -1,10 +1,11 @@
-// Smoothly move the camera toward the target position
 var cam = view_camera[0];
-var lerp_speed = 0.1; // Adjust for faster/slower movement
+var current_x = camera_get_view_x(cam);
+var current_y = camera_get_view_y(cam);
+var progress = 0.04; // Adjust for speed (0.1 = slower, 0.3 = faster)
 
-// Update the camera position
+// Apply easing
 camera_set_view_pos(
     cam,
-    lerp(camera_get_view_x(cam), global.target_cam_x, lerp_speed),
-    lerp(camera_get_view_y(cam), global.target_cam_y, lerp_speed)
+    ease_out_quad(current_x, global.target_cam_x, progress),
+    ease_out_quad(current_y, global.target_cam_y, progress)
 );
