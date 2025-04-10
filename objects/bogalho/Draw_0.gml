@@ -1,4 +1,2 @@
-// Inherit the parent event
+/// @desc Herda e estende a lógica de desenho do objeto pai  
 event_inherited();
-
-draw_text_transformed(x + 20, y, path_position,0.35, 0.35, 0)
