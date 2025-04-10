@@ -46,7 +46,7 @@
   "origin":4,
   "parent":{
     "name":"Player",
-    "path":"folders/Entity/Player.yy",
+    "path":"folders/Objects/Entity/Player.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -18,7 +18,7 @@
   ],
   "parent":{
     "name":"Player",
-    "path":"folders/Entity/Player.yy",
+    "path":"folders/Objects/Entity/Player.yy",
   },
   "parentObjectId":{
     "name":"obj_entity_parent",
