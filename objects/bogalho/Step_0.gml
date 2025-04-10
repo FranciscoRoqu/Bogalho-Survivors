@@ -1,37 +1,40 @@
-switch(state) {
-    default:
-        // Only process controls if NOT transitioning
-        if (!is_transitioning) {
-            reset_variables();
-            
-            // Handle player input if alive
-            if (state != states.DEAD) {
-                aim_weapon();
-                get_input();
-                movement();
-                check_fire();
-                pick_weapon();
-            }
+switch(state) {  
+    default:  
+        // --- Controle Principal ---  
+        // Só processa inputs se NÃO estiver em transição de cena/estado  
+        if (!is_transitioning) {  
+            reset_variables();             // Reinicia variáveis de movimento/input  
+              
+            // Lógica ativa apenas se jogador estiver vivo  
+            if (state != states.DEAD) {  
+                aim_weapon();              // Controla direção da mira/armas  
+                get_input();               // Captura inputs do teclado/joystick  
+                movement();                // Calcula movimento baseado nas direções  
+                check_fire();              // Verifica condições de disparo  
+                pick_weapon();             // Permite trocar de arma coletável  
+            }  
 
-            // Update movement state
-            if ((leftrightmovement != 0 || updownmovement != 0) && state != states.DEAD) {
-                state = states.MOVE;
-            } else {
-                state = states.IDLE;
-            }
+            // --- Atualização de Estado ---  
+            // Altera para MOVIMENTO se houver direção ativa (e jogador vivo)  
+            if ((leftrightmovement != 0 || updownmovement != 0) && state != states.DEAD) {  
+                state = states.MOVE;       // Ativa estado de movimento  
+            } else {  
+                state = states.IDLE;       // Volta para estado inativo  
+            }  
 
-            // Always update animations
-            anim();
-        }
-        break;
+            anim();  // Atualiza animações mesmo em transição/pausa  
+        }  
+        break;  
 
-    case states.DEAD:
-        sprite_index = sprite_player_dead;
-        break;
-}
+    // --- Estado MORTO ---  
+    case states.DEAD:  
+        sprite_index = sprite_player_dead;  // Define sprite fixo de morte (ex: corpo caído)  
+        break;  
+}  
 
-// Emergency transition reset
-if (is_transitioning && !global.is_transitioning) {
-    is_transitioning = false;
-    can_move = true;
-}
+// --- Reset de Transição ---  
+// Garante sincronização com sistema global de transições  
+if (is_transitioning && !global.is_transitioning) {  
+    is_transitioning = false;  // Libera controle do jogador  
+    can_move = true;           // Restaura movimentação normal  
+}  
