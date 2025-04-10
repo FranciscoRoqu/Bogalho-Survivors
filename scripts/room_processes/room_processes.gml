@@ -136,30 +136,51 @@ function get_room_layout(gx, gy) {
 }
 
 function transition_to_room(new_x, new_y, door_dir) {
-    // Update the current room grid position
-    global.current_room_x = new_x;
-    global.current_room_y = new_y;
+    // Prevent input during transition
+    global.is_transitioning = true;
+    global.transition_progress = 0;
 
-    // Calculate the new camera target
-    global.target_cam_x = WORLD_CENTER_X + new_x * ROOM_WIDTH;
-    global.target_cam_y = WORLD_CENTER_Y + new_y * ROOM_HEIGHT;
+    // Store player’s current position as the start point
+    global.player_start_x = bogalho.x;
+    global.player_start_y = bogalho.y;
 
-    // Reposition the player (example for "top" door)
-    var player = bogalho;
+    // Calculate target position based on door direction
+    var room_world_x = WORLD_CENTER_X + new_x * ROOM_WIDTH;
+    var room_world_y = WORLD_CENTER_Y + new_y * ROOM_HEIGHT;
+    var offset = 60; // Adjust to match door positions
+
     switch (door_dir) {
         case "top":
-            player.y = global.target_cam_y + ROOM_HEIGHT - 64; // Bottom of new room
+            global.player_target_x = bogalho.x;
+            global.player_target_y = room_world_y + ROOM_HEIGHT - offset;
             break;
         case "bottom":
-            player.y = global.target_cam_y + 64; // Top of new room
+            global.player_target_x = bogalho.x;
+            global.player_target_y = room_world_y + offset;
             break;
         case "left":
-            player.x = global.target_cam_x + ROOM_WIDTH - 64; // Right of new room
+            global.player_target_x = room_world_x + ROOM_WIDTH - offset;
+            global.player_target_y = bogalho.y;
             break;
         case "right":
-            player.x = global.target_cam_x + 64; // Left of new room
+            global.player_target_x = room_world_x + offset;
+            global.player_target_y = bogalho.y;
             break;
     }
+
+    // Update global room and camera targets
+    global.current_room_x = new_x;
+    global.current_room_y = new_y;
+    global.target_cam_x = room_world_x;
+    global.target_cam_y = room_world_y;
+	
+	// Start transition
+	bogalho.is_transitioning = true;
+	
+	// End transition (in camera manager Step Event)
+	if (global.transition_progress >= 1) {
+	    bogalho.is_transitioning = false;
+	}
 }
 
 /// @function get_target_room(current_x, current_y, door_dir)
