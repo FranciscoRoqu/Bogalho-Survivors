@@ -1,7 +1,10 @@
 // ========================================================
 //                SISTEMA DE GERAÇÃO DE SALAS
 // ========================================================
-
+function room_templates()
+{
+	var layouts = {}
+	
 	layouts.initial_room = [
 		[door, 384.0, 403.0, 1.5333333, 0.20689656, 0.0, "bottom"],
 		[inverted_door, 741.0, 220.72414, -0.1333333, 1.551724, 0.0],
@@ -126,64 +129,84 @@ function pick_layout_with_door(required_door) {
     return (array_length(valid_layouts) > 0 ? choose(valid_layouts) : undefined);
 }
 
-// ========================================================
-//                GESTÃO DE TRANSIÇÕES
-// ========================================================
-
-/// @function transition_to_room(new_x, new_y, door_dir)
-/// @description Executa transição suave entre salas
-/// @param {Number} new_x   Nova coordenada X na grelha
-/// @param {Number} new_y   Nova coordenada Y na grelha
-/// @param {String} door_dir Direção da porta de entrada
+function get_room_layout(gx, gy) {
+    var key = string(gx) + "," + string(gy);
+    return ds_map_exists(global.room_layout_map, key) ? global.room_layout_map[? key] : undefined;
+}
 function transition_to_room(new_x, new_y, door_dir) {
-    // Bloqueia inputs durante transição
+    // Prevent input during transition
     global.is_transitioning = true;
     global.transition_progress = 0;
 
-    // Calcula posição-alvo com base na direção
+    // Store player’s current position as the start point
+    global.player_start_x = bogalho.x;
+    global.player_start_y = bogalho.y;
+
+    // Calculate target position based on door direction
     var room_world_x = WORLD_CENTER_X + new_x * ROOM_WIDTH;
     var room_world_y = WORLD_CENTER_Y + new_y * ROOM_HEIGHT;
-    var offset = 60;  // Distância de spawn relativa à porta
+    var offset = 60; // Adjust to match door positions
 
-    // Define ponto de spawn conforme direção
     switch (door_dir) {
-        case "top":    // Spawn abaixo da porta superior
+        case "top":
+            global.player_target_x = bogalho.x;
             global.player_target_y = room_world_y + ROOM_HEIGHT - offset;
             break;
-        case "bottom": // Spawn acima da porta inferior
+        case "bottom":
+            global.player_target_x = bogalho.x;
             global.player_target_y = room_world_y + offset;
             break;
-        // ... outros casos
+        case "left":
+            global.player_target_x = room_world_x + ROOM_WIDTH - offset;
+            global.player_target_y = bogalho.y;
+            break;
+        case "right":
+            global.player_target_x = room_world_x + offset;
+            global.player_target_y = bogalho.y;
+            break;
     }
 
-    // Atualiza registros globais
+    // Update global room and camera targets
     global.current_room_x = new_x;
     global.current_room_y = new_y;
-    global.target_cam_x = room_world_x;  // Alvo para câmera
+    global.target_cam_x = room_world_x;
     global.target_cam_y = room_world_y;
+	
+	// Start transition
+	bogalho.is_transitioning = true;
+	
+	// End transition (in camera manager Step Event)
+	if (global.transition_progress >= 1) {
+	    bogalho.is_transitioning = false;
+	}
 }
 
 /// @function get_target_room(current_x, current_y, door_dir)
-/// @description Calcula coordenadas da sala adjacente
-/// @returns {Struct} Coordenadas {x, y} da sala destino
+/// @description Calculates the target grid coordinates based on the current room and door direction.
+/// @param {Number} current_x The current grid X-coordinate.
+/// @param {Number} current_y The current grid Y-coordinate.
+/// @param {String} door_dir   The door direction ("top", "bottom", "left", "right").
+/// @returns {Struct}          A struct with `x` and `y` properties representing the target grid position.
 function get_target_room(current_x, current_y, door_dir) {
-    var target = { x: current_x, y: current_y };
-    
-    // Ajusta coordenadas conforme direção
+    var target_x = current_x;
+    var target_y = current_y;
+
     switch (door_dir) {
-        case "top":    target.y--; break;  // Sala acima
-        case "bottom": target.y++; break;  // Sala abaixo
-        case "left":   target.x--; break;
-		case "right":  target.x++; break;
+        case "top":    target_y--; break;
+        case "bottom": target_y++; break;
+        case "left":   target_x--; break;
+        case "right":  target_x++; break;
     }
-    
-    return target;
+
+    return { x: target_x, y: target_y };
 }
 
 /// @function room_exists_at(gx, gy)
-/// @description Verifica existência de sala nas coordenadas
-/// @returns {Boolean} True se sala já foi gerada
+/// @description Checks if a room exists at the specified grid coordinates by verifying the key in `global.room_layout_map`.
+/// @param {Number} gx Grid X-coordinate.
+/// @param {Number} gy Grid Y-coordinate.
+/// @returns {Boolean} `true` if the room exists, `false` otherwise.
 function room_exists_at(gx, gy) {
     var key = string(gx) + "," + string(gy);
-    return ds_map_exists(global.room_layout_map, key);  // Consulta mapa global
+    return ds_map_exists(global.room_layout_map, key);
 }
