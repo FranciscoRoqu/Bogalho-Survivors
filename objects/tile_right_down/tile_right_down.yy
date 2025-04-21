@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tile_right_up",
+  "%Name":"tile_right_down",
   "eventList":[],
   "managed":true,
-  "name":"obj_tile_right_up",
+  "name":"tile_right_down",
   "overriddenProperties":[],
   "parent":{
     "name":"Floor",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprite_tile_right_up",
-    "path":"sprites/sprite_tile_right_up/sprite_tile_right_up.yy",
+    "name":"sprite_tile_right_down",
+    "path":"sprites/sprite_tile_right_down/sprite_tile_right_down.yy",
   },
   "spriteMaskId":null,
   "visible":true,

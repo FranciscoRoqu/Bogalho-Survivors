@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tile",
+  "%Name":"tile",
   "eventList":[],
   "managed":true,
-  "name":"obj_tile",
+  "name":"tile",
   "overriddenProperties":[],
   "parent":{
     "name":"Floor",

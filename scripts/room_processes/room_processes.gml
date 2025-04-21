@@ -2,32 +2,46 @@
 //                SISTEMA DE GERAÇÃO DE SALAS
 // ========================================================
 
-/// @function room_templates()
-/// @description Cria e retorna templates pré-definidos para geração procedural de salas
-/// @returns {Struct} Estrutura com layouts de sala contendo:
-///              - Tipo de objeto
-///              - Posições relativas (X,Y)
-///              - Escalas (Xscale, Yscale)
-///              - Direção opcional para portas
-function room_templates() {
-    var layouts = {};  // Dicionário de layouts
-
-    // Layout inicial com paredes, limites e portas
-    layouts.initial_room = [  // Sala inicial do jogo
-        [obj_tile, 0.0, 0.0, 24.0, 13.5],          // Piso principal
-        [obj_solid, 0.0, 0.0, 48.000004, 2.0],     // Parede superior
-        [obj_solid, 0.0, 32.0, 1.687471, 25.0],    // Parede esquerda
-        [obj_solid, 12.0, 404.0, 47.250004, 1.75], // Plataforma inferior
-        [obj_map_limit, 16.00003, 16.0, 15.333334, 6.25], // Limite do mapa
-        [obj_door, 384.0, 26.0, 1.5333337, 1.703448, "top"] // Porta superior
-        // ... (outros objetos omitidos para brevidade)
-    ]
-    
-    layouts.next_room = [  // Modelo genérico para salas subsequentes
-        // Estrutura similar à sala inicial
-        // ... (objetos omitidos)
-    ]
-    
+	layouts.initial_room = [
+		[door, 384.0, 403.0, 1.5333333, 0.20689656, 0.0, "bottom"],
+		[inverted_door, 741.0, 220.72414, -0.1333333, 1.551724, 0.0],
+		[door, 741.0, 212.72414, -0.1300001, 1.551724, 0.0, "right"],
+		[inverted_door, 27.0, 220.0, 0.13333334, 1.551724, 0.0],
+		[door, 27.0, 212.0, 0.13000005, 1.551724, 0.0, "left"],
+		[door, 384.0, 26.0, 1.5333337, 1.703448, 0.0, "top"],
+		[obj_blank, 0.0, 16.0, 1.0, 25.0, 0.0],
+		[obj_blank, 0.0, 416.0, 47.0, 1.0, 0.0],
+		[obj_blank, 752.0, 16.0, 1.0, 26.0, 0.0],
+		[obj_blank, 0.0, 0.0, 48.0, 1.0, 0.0],
+		[obj_map_limit, 16.00003, 16.0, 15.333334, 6.25, 0.0],
+		[obj_solid, 741.0, 32.0, 1.9375001, 24.0, 0.0],
+		[obj_solid, 12.0, 404.0, 47.250004, 1.75, 0.0],
+		[obj_solid, 0.0, 32.0, 1.687471, 25.0, 0.0],
+		[obj_solid, 0.0, 0.0, 48.000004, 2.0, 0.0],
+		[tile, 0.0, 0.0, 24.0, 13.5, 0.0]
+	]
+	
+	layouts.next_room = [
+         [enemy_spawner, 464.0, 160.0, 0.5, 0.5, 0.0],
+         [enemy_spawner, 304.0, 160.0, 0.5, 0.5, 0.0],
+         [weapon_rahhhhGun, 80.0, 80.0, 1.0, 1.0, 0.0],
+         [door, 384.0, 403.0, 1.533333, 0.2068966, 0.0, "bottom"],
+         [inverted_door, 741.0, 220.7241, -0.1333333, 1.551724, 0.0],
+         [door, 741.0, 212.7241, -0.1300001, 1.551724, 0.0, "right"],
+         [door, 27.0, 212.0, 0.1300001, 1.551724, 0.0, "left"],
+         [door, 384.0, 26.0, 1.533334, 1.703448, 0.0, "top"],
+         [obj_blank, 0.0, 16.0, 1.0, 25.0, 0.0],
+         [obj_blank, 0.0, 416.0, 47.0, 1.0, 0.0],
+         [obj_blank, 752.0, 16.0, 1.0, 26.0, 0.0],
+         [obj_blank, 0.0, 0.0, 48.0, 1.0, 0.0],
+         [obj_map_limit, 16.00003, 16.0, 15.333334, 6.25, 0.0],
+         [tile, 0.0, 0.0, 24.0, 13.5, 0.0],
+         [inverted_door, 27.0, 220.0, 0.13333334, 1.551724, 0.0],
+         [obj_solid, 740.0, 32.0, 2.0, 24.0, 0.0],
+         [obj_solid, 12.0, 404.0, 47.250004, 1.75, 0.0],
+         [obj_solid, 0.0, 32.0, 1.75, 25.0, 0.0],
+         [obj_solid, 0.0, 0.0, 48.000004, 2.3125, 0.0]
+	]
     return layouts;
 }
 
@@ -50,14 +64,24 @@ function build_room_at(layout, gx, gy) {
         var _x = base_x + layout[i][1];  // Posição X absoluta
         var _y = base_y + layout[i][2];  // Posição Y absoluta
         
-        // Cria e configura instância
+        // Os objetos são colocados relativos ao centro
+        var _x = base_x + layout[i][1];  
+        var _y = base_y + layout[i][2];
+
+        var xscale = layout[i][3];
+        var yscale = layout[i][4];
+		var rotation = layout[i][5]
+
+        // Debug da posição do objeto
+        show_debug_message("Object " + string(i) + " position: (" + string(_x) + ", " + string(_y) + ")");
+
         var inst = instance_create_layer(_x, _y, "Instances", obj);
-        inst.image_xscale = layout[i][3];  // Escala horizontal
-        inst.image_yscale = layout[i][4];  // Escala vertical
-        
-        // Configura direção para portas (se existir)
-        if (array_length(layout[i]) > 5) {
-            inst.door_dir = layout[i][5];  // Ex: "top", "left"
+        inst.image_xscale = xscale;
+        inst.image_yscale = yscale;
+		inst.image_angle = rotation
+
+        if (array_length(layout[i]) > 6) {
+            inst.door_dir = layout[i][6];
         }
     }
     
@@ -73,9 +97,8 @@ function build_room_at(layout, gx, gy) {
 /// @returns {Boolean} True se encontrar pelo menos uma porta na direção
 function layout_has_door(layout, dir) {
     for (var i = 0; i < array_length(layout); i++) {
-        // Verifica parâmetro opcional de direção
-        if (array_length(layout[i]) > 5 && layout[i][5] == dir) {
-            return true;  // Porta encontrada
+        if (array_length(layout[i]) > 6 && layout[i][6] == dir) {
+            return true;
         }
     }
     return false;  // Nenhuma porta nesta direção

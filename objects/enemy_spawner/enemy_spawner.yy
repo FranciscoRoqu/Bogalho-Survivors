@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_tile_center",
+  "%Name":"enemy_spawner",
   "eventList":[],
   "managed":true,
-  "name":"obj_tile_center",
+  "name":"enemy_spawner",
   "overriddenProperties":[],
   "parent":{
-    "name":"Floor",
-    "path":"folders/Objects/Floor.yy",
+    "name":"Enemies",
+    "path":"folders/Objects/Entity/Enemies.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprite_tile_center",
-    "path":"sprites/sprite_tile_center/sprite_tile_center.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
