@@ -1,5 +1,5 @@
-/// @description Inicializa variáveis de estado e configura comportamentos base do objeto  
-event_inherited();               // Herda lógica do objeto pai (ex: eventos pré-definidos)  
+/// @description
+event_inherited(); 
 
 // --- Configuração inicial de estados e movimento ---  
 state = states.IDLE;             // Estado inicial: inativo/em repouso  
