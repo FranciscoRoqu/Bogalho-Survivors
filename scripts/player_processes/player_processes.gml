@@ -89,7 +89,7 @@ function check_fire(){
             alarm[0] = current_weapon.fire_rate  // Define intervalo entre disparos
                         
             var _dir = point_direction(x, y, mouse_x, mouse_y)  // Direção do tiro
-            current_weapon.weapon_dis = 10  // Distância inicial da arma
+            current_weapon.weapon_dis = current_weapon.animation_knockback  // Distância inicial da arma
             
             // Cria instância do projétil
             var _inst = instance_create_layer(x,y, "Bullet", current_weapon.weapon_bullet)
