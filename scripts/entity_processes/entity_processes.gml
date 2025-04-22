@@ -1,57 +1,57 @@
-/// @description Aplica dano a uma entidade e calcula efeitos de recuo
-/// @param {real} _tid    ID da entidade alvo
-/// @param {real} _sid    ID da entidade origem (causadora do dano)
-/// @param {real} _damage Quantidade de dano a aplicar
-/// @param {real} _time   Duração do efeito de recuo (em frames)
-function damage_entity(_tid, _sid, _damage, _time){
-    with(_tid){
-        hit_points -= _damage  // Reduz pontos de vida do alvo
+/// @function entity_take_damage(target, damage, source, [apply_knockback], [knockback_power], [knockback_duration])
+/// @param {instance} target        The instance receiving damage
+/// @param {real}     damage        Amount of damage to apply
+/// @param {instance} source        Source of the damage (for direction)
+/// @param {bool}     apply_knockback Whether to apply knockback (default: true)
+/// @param {real}     knockback_power Knockback force (default: 4)
+/// @param {real}     knockback_duration Knockback duration (default: 15)
+
+function entity_take_damage(_target, _damage, _source, _apply_knockback=true, _knockback_power=4, _knockback_duration=15) {
+    if !instance_exists(_target) return false;
+    
+    // Apply damage
+    if variable_instance_exists(_target, "hit_points") 
+	{
+        _target.hit_points -= _damage;
         
-        var _dead = is_dead()  // Verifica se entidade morreu
-        path_end()             // Interrompe qualquer movimento ativo
-        
-        // Define força do recuo conforme estado de vida
-        var _dis = _dead ? 5 : 3  // Recuo maior se morto (5 vs 3 pixels)
-        
-        // Calcula direção do recuo (ângulo entre origem e alvo)
-        var _dir = point_direction(_sid.x, _sid.y, x, y)
-        hsp += lengthdir_x(_dis, _dir)  // Aplica componente horizontal
-        vsp += lengthdir_y(_dis, _dir)  // Aplica componente vertical
-        
-        // Configura temporizadores e estados
-        calc_path_delay = _time  // Intervalo para recalcular caminho
-        alert = true             // Mantém inimigo em estado de alerta
-        knockback_time = _time   // Duração total do efeito de recuo
-        
-        // Aplica estado de recuo apenas se alvo não for jogador
-        if !_dead && _tid != bogalho {
-            state = states.KNOCKBACK
+        // Universal damage event
+        if _target.object_index == bogalho {
+            event_user(0); // Player damage event
+        } else {
+            event_user(1); // Enemy damage event
         }
-        return _dead  // Retorna se entidade foi morta
     }
-}
-
-/// @description Verifica e atualiza estado de morte da entidade
-function is_dead(){    
-    if state != states.DEAD{
-        if hit_points <= 0{
-            state = states.DEAD    // Ativa estado de morte
-            hit_points = 0         // Garante vida não negativa
-            image_index = 0        // Reinicia animação de morte
-            return true
+    
+    // Apply optional knockback
+    if _apply_knockback && variable_instance_exists(_target, "knockback_direction") {
+        var dir = point_direction(_source.x, _source.y, _target.x, _target.y);
+        
+        _target.knockback_force = _knockback_power;
+        _target.knockback_direction = dir;
+        _target.knockback_duration = _knockback_duration;
+        
+        // Enter staggered state if exists
+        if variable_instance_exists(_target, "state") {
+            _target.state = enemy_state.staggered;
         }
-    } 
-    return false  // Mantém estado atual se já estiver morto
+    }
+    
+    // Visual feedback
+    if variable_instance_exists(_target, "image_blend") {
+        _target.image_blend = merge_color(_target.image_blend, c_red, 0.7);
+        _target.alarm[1] = 8; // Reset color
+    }
+    
+    // Death check
+    if _target.hit_points <= 0 {
+        if variable_instance_exists(_target, "state") {
+            _target.state = enemy_state.dead
+        }
+    }
+    
+    return true;
 }
 
-/// @description Para movimento suave quando velocidade é insignificante
-function check_if_stopped(){
-    // Limiar de paragem: 0.1 pixels/frame
-    if abs(hsp) < 0.1 hsp = 0  // Reset velocidade horizontal
-    if abs(vsp) < 0.1 vsp = 0  // Reset velocidade vertical
-}
-
-/// @description Renderiza barra de vida sobre a entidade
 function show_healthbar(){
     // Só desenha se vida estiver entre 1% e 99%
     if hit_points != hit_points_max and hit_points > 0

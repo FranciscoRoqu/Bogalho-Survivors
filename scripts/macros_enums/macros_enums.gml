@@ -32,8 +32,8 @@ enum states{
 
 /// Categorias de dano para sistema de resistências/efeitos
 enum damages{
-    RADIANT,    // Dano mágico/luminoso (ex: habilidades especiais)
-    PHYSICAL    // Dano físico convencional (ex: armas corpo-a-corpo)
+    RADIANT,    
+    PHYSICAL    
 }
 
 // ========================================================
@@ -42,6 +42,6 @@ enum damages{
 
 /// Mapeamento de efeitos visuais para tipos de dano
 global.damages_sprites = [
-    sprite_the_power_of_the_sun,  // Sprite para dano RADIANT (ex: efeito brilhante)
-    sprite_physical               // Sprite para dano PHYSICAL (ex: impacto físico)
+    sprite_the_power_of_the_sun,  
+    sprite_physical               
 ]

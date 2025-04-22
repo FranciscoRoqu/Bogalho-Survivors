@@ -26,8 +26,11 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":null,
+  "solid":true,
+  "spriteId":{
+    "name":"sprite_solid",
+    "path":"sprites/sprite_solid/sprite_solid.yy",
+  },
   "spriteMaskId":{
     "name":"sprite_solid",
     "path":"sprites/sprite_solid/sprite_solid.yy",

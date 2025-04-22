@@ -32,7 +32,7 @@
   "origin":0,
   "parent":{
     "name":"Cats",
-    "path":"folders/Objects/Entity/Cats.yy",
+    "path":"folders/Sprites/Entity/Cats.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

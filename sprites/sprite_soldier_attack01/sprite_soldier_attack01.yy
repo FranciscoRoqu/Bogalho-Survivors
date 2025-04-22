@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"Enemies",
-    "path":"folders/Objects/Entity/Enemies.yy",
+    "path":"folders/Sprites/Entity/Enemies.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -68,6 +68,8 @@
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
+    "seqHeight":81.0,
+    "seqWidth":102.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,

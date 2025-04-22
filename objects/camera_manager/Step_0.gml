@@ -30,21 +30,3 @@ if (global.is_transitioning) {
     // Re-enable input
     bogalho.can_move = true;
 }
-
-// Toggle with M key
-if (keyboard_check_pressed(ord("M"))) {
-    global.show_full_map = !global.show_full_map;
-    view_visible[1] = global.show_full_map;
-}
-
-if (global.show_full_map) {
-    // Full map view (entire dungeon)
-    camera_set_view_pos(full_map_view, 0, 0);
-    camera_set_view_size(full_map_view, 7680, 4320);
-    
-    // Keep main view centered on player
-    camera_set_view_pos(main_view, bogalho.x - 384, bogalho.y - 216);
-} else {
-    // Normal single view
-    camera_set_view_pos(main_view, bogalho.x - 384, bogalho.y - 216);
-}

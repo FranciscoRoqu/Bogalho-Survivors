@@ -1,9 +1,11 @@
 randomize()
 global.room_layout_map = ds_map_create();
 global.room_templates = room_templates();
+global.room_grid = ds_grid_create(global.grid_width, global.grid_height);
+ds_grid_clear(global.room_grid, -1);
 
 var all_keys = variable_struct_get_names(global.room_templates);
-var num_rooms = 6;
+var num_rooms = irandom_range(6, 11);
 var directions = [
     ["top",    0, -1],
     ["bottom", 0,  1],
@@ -25,6 +27,7 @@ var open_positions = ds_list_create();
 ds_list_add(open_positions, [0, 0]);
 
 build_room_at(global.room_templates.initial_room, 0, 0);
+ds_grid_set(global.room_grid, 5, 5, 1); 
 
 var rooms_built = 0;
 while (rooms_built < num_rooms && ds_list_size(open_positions) > 0) {
@@ -83,7 +86,9 @@ while (rooms_built < num_rooms && ds_list_size(open_positions) > 0) {
     }
 }
 
+
 // Spawn player in center of start room
 var player_x = WORLD_CENTER_X + ROOM_WIDTH / 2;
 var player_y = WORLD_CENTER_Y + ROOM_HEIGHT / 2;
 instance_create_layer(player_x, player_y, "Player", bogalho);
+

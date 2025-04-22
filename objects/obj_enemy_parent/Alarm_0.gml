@@ -1,1 +1,0 @@
-beginDisappear = true;           // Ativa processo de desaparecimento gradual (ex: morte do inimigo)

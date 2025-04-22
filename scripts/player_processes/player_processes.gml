@@ -111,9 +111,9 @@ function pick_weapon(){
         var player_y = bogalho.y  // Posição Y atual do jogador
     
         // Procura armas próximas
-        var inst_count = instance_number(obj_weapon_parent)
+        var inst_count = instance_number(weapon_parent)
         for (var i = 0; i < inst_count; i++) {
-            var inst = instance_find(obj_weapon_parent, i) 
+            var inst = instance_find(weapon_parent, i) 
             if current_weapon != inst  // Evita deteção da arma atual
             {
                 // Verifica se mouse está sobre a arma
@@ -132,7 +132,7 @@ function pick_weapon(){
                             var new_weapon = instance_create_layer(
                                 current_weapon.x, 
                                 current_weapon.y, 
-                                "Instances", 
+                                "Player", 
                                 current_weapon.object_index
                             )
                             // Remove arma antiga
@@ -156,7 +156,7 @@ function pick_weapon(){
             var new_weapon = instance_create_layer(
                 current_weapon.x, 
                 current_weapon.y, 
-                "Instances", 
+                "MapLayout", 
                 current_weapon.object_index
             )
             

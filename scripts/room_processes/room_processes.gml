@@ -25,9 +25,9 @@ function room_templates()
 	]
 	
 	layouts.next_room = [
-         [enemy_spawner, 464.0, 160.0, 0.5, 0.5, 0.0],
+         [enemy_soldier	, 464.0, 160.0, 0.5, 0.5, 0.0],
          [enemy_spawner, 304.0, 160.0, 0.5, 0.5, 0.0],
-         [weapon_rahhhhGun, 80.0, 80.0, 1.0, 1.0, 0.0],
+         [weapon_revolver, 80.0, 80.0, 1.0, 1.0, 0.0],
          [door, 384.0, 403.0, 1.533333, 0.2068966, 0.0, "bottom"],
          [inverted_door, 741.0, 220.7241, -0.1333333, 1.551724, 0.0],
          [door, 741.0, 212.7241, -0.1300001, 1.551724, 0.0, "right"],
@@ -91,6 +91,7 @@ function build_room_at(layout, gx, gy) {
     // Armazena layout no mapa global
     var key = string(gx) + "," + string(gy);
     ds_map_add(global.room_layout_map, key, layout);
+	ds_grid_set(global.room_grid, gx + 5, gy + 5, 1)
 }
 
 /// @function layout_has_door(layout, dir)
